@@ -33,8 +33,8 @@ function SignIn() {
       localStorage.setItem(
         USER_KEY,
         JSON.stringify({
-          name: name.trim() || 'Guest',
-          email: email.trim() || 'guest@example.com',
+          name: name.trim() || 'Yeboah Bernard',
+          email: email.trim() || 'yeboahbernard@example.com',
         })
       )
     } catch {

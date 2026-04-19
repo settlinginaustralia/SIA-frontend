@@ -17,6 +17,7 @@ import SignIn from './pages/SignIn'
 import Logout from './pages/Logout'
 import Tutorials from './pages/Tutorials'
 import Downloads from './pages/Downloads'
+import Pathway from './pages/Pathway'
 import './styles/global.css'
 import './styles/responsive.css'
 
@@ -47,6 +48,7 @@ function App() {
                   <Route path="logout" element={<Logout />} />
                   <Route path="tutorials" element={<Tutorials />} />
                   <Route path="downloads" element={<Downloads />} />
+                  <Route path="path/:pathId" element={<Pathway />} />
                 </Route>
               </Route>
             </Routes>
