@@ -1,0 +1,21 @@
+.sia-card {
+  border-radius: 14px;
+  border: 1px solid var(--sia-accent-border-soft);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 1px 0 var(--sia-accent-glow);
+  padding: 1.25rem 1.35rem;
+}
+
+.sia-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--sia-text);
+}
+
+.sia-card__body {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--sia-text-muted);
+}

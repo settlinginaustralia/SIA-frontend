@@ -1,0 +1,124 @@
+:root {
+  --sia-bg: #0a0a0a;
+  --sia-panel: #141414;
+  --sia-main: rgb(20, 20, 20);
+  --sia-side: rgb(26, 26, 26);
+  --sia-text: #f4f4f5;
+  --sia-text-muted: #d4d4d8;
+  /* Accent — emerald on black */
+  --sia-accent: #34d399;
+  --sia-accent-bright: #6ee7b7;
+  --sia-accent-dim: #059669;
+  --sia-accent-glow: rgba(52, 211, 153, 0.22);
+  --sia-accent-fill: rgba(52, 211, 153, 0.12);
+  --sia-accent-fill-hover: rgba(52, 211, 153, 0.18);
+  --sia-accent-border: rgba(52, 211, 153, 0.45);
+  --sia-accent-border-soft: rgba(52, 211, 153, 0.2);
+  --sia-scrollbar-track: rgba(255, 255, 255, 0.05);
+  --sia-scrollbar-thumb: rgba(52, 211, 153, 0.38);
+  --sia-scrollbar-thumb-hover: rgba(52, 211, 153, 0.62);
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --sia-bg: #f1f5f9;
+  --sia-panel: #ffffff;
+  --sia-main: #ebebeb;
+  --sia-side: #f3f3f3;
+  --sia-text: #0f172a;
+  --sia-text-muted: #475569;
+  --sia-accent: #059669;
+  --sia-accent-bright: #047857;
+  --sia-accent-dim: #065f46;
+  --sia-accent-glow: rgba(5, 150, 105, 0.18);
+  --sia-accent-fill: rgba(5, 150, 105, 0.12);
+  --sia-accent-fill-hover: rgba(5, 150, 105, 0.2);
+  --sia-accent-border: rgba(5, 150, 105, 0.45);
+  --sia-accent-border-soft: rgba(5, 150, 105, 0.22);
+  --sia-scrollbar-track: rgba(15, 23, 42, 0.08);
+  --sia-scrollbar-thumb: rgba(5, 150, 105, 0.42);
+  --sia-scrollbar-thumb-hover: rgba(5, 150, 105, 0.68);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+  min-height: 0;
+}
+
+.sia-app-root {
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: var(--sia-text);
+  background-color: var(--sia-bg);
+}
+
+/* Router tree fills the app shell (no extra document scroll) */
+.sia-app-root > * {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+}
+
+::selection {
+  background: rgba(52, 211, 153, 0.35);
+  color: var(--sia-bg);
+}
+
+:root[data-theme='light'] ::selection {
+  background: rgba(5, 150, 105, 0.28);
+  color: var(--sia-text);
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--sia-bg);
+  color: var(--sia-text);
+}
+
+/* Themed scrollbars (Firefox + WebKit) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sia-scrollbar-thumb) var(--sia-scrollbar-track);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--sia-scrollbar-track);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--sia-scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--sia-scrollbar-thumb-hover);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}

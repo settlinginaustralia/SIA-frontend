@@ -1,0 +1,117 @@
+.sia-navbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  margin: 1vh 1vh 0;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+}
+
+.sia-navbar__brand {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--sia-text);
+  white-space: nowrap;
+}
+
+.sia-navbar__center {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sia-navbar__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  width: min(960px, 100%);
+  max-width: 960px;
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--sia-text-muted);
+}
+
+.sia-navbar__search .bi {
+  font-size: 0.9rem;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.sia-navbar__searchInput {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--sia-text);
+  width: 100%;
+  min-width: 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.sia-navbar__searchInput::placeholder {
+  color: var(--sia-text-muted);
+  opacity: 0.9;
+}
+
+.sia-navbar__signin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 11px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--sia-text);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.sia-navbar__signin:hover {
+  background: transparent;
+  border-color: var(--sia-accent-border-soft);
+  color: var(--sia-accent-bright);
+}
+
+.sia-navbar__right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.sia-navbar__profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--sia-text-muted);
+  font-size: 1.55rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sia-navbar__profile:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--sia-text);
+}
+
+.sia-navbar__profile--open {
+  background: var(--sia-accent-fill-hover);
+  color: var(--sia-accent-bright);
+}
+
