@@ -14,6 +14,7 @@ import Contact from './pages/Contact'
 import Settings from './pages/Settings'
 import Community from './pages/Community'
 import './styles/global.css'
+import './styles/responsive.css'
 
 function App() {
   return (

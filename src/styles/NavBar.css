@@ -11,6 +11,18 @@
   backdrop-filter: blur(10px);
 }
 
+.sia-navbar__left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.sia-navbar__menuBtn {
+  display: none;
+}
+
 .sia-navbar__brand {
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -113,5 +125,250 @@
 .sia-navbar__profile--open {
   background: var(--sia-accent-fill-hover);
   color: var(--sia-accent-bright);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Mobile: compact bar + “site menu” sheet (search, profile, sign in)        */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 767.98px) {
+  .sia-navbar--mobileCompact {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    position: relative;
+    z-index: 1045;
+    margin: max(6px, env(safe-area-inset-top)) 10px 0 10px;
+    padding: 0;
+    border-radius: 14px;
+    overflow: visible;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+  }
+
+  .sia-navbar__mobileTopRow {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  .sia-navbar__menuBtn--sidebar,
+  .sia-navbar__siteMenuBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--sia-text);
+    font-size: 1.45rem;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .sia-navbar__siteMenuBtn {
+    font-size: 1.25rem;
+  }
+
+  .sia-navbar__menuBtn--sidebar:hover,
+  .sia-navbar__siteMenuBtn:hover {
+    background: var(--sia-accent-fill);
+    color: var(--sia-accent-bright);
+    box-shadow: 0 0 0 1px var(--sia-accent-border-soft);
+  }
+
+  .sia-navbar__menuBtn--sidebar:focus-visible,
+  .sia-navbar__siteMenuBtn:focus-visible {
+    outline: 2px solid var(--sia-accent);
+    outline-offset: 2px;
+  }
+
+  .sia-navbar__siteMenuBtn--open {
+    background: var(--sia-accent-fill-hover);
+    color: var(--sia-accent-bright);
+    box-shadow: 0 0 0 1px var(--sia-accent-border-soft);
+  }
+
+  .sia-navbar__brand--mobileCenter {
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--sia-text);
+    min-width: 0;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sia-navbar__siteMenuBackdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1034;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    animation: sia-navbar-backdrop-in 0.22s ease forwards;
+  }
+
+  @keyframes sia-navbar-backdrop-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .sia-navbar__siteMenuPanel {
+    position: fixed;
+    left: max(10px, env(safe-area-inset-left));
+    right: max(10px, env(safe-area-inset-right));
+    z-index: 1036;
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    background: var(--sia-panel);
+    border: 1px solid var(--sia-accent-border-soft);
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.55),
+      0 0 0 1px var(--sia-accent-glow);
+    animation: sia-navbar-panel-in 0.3s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+  }
+
+  @keyframes sia-navbar-panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .sia-navbar__siteMenuHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--sia-accent-border-soft);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .sia-navbar__siteMenuTitle {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sia-accent-bright);
+  }
+
+  .sia-navbar__siteMenuClose {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--sia-text-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .sia-navbar__siteMenuClose:hover {
+    background: var(--sia-accent-fill);
+    color: var(--sia-accent-bright);
+  }
+
+  .sia-navbar__siteMenuClose:focus-visible {
+    outline: 2px solid var(--sia-accent);
+    outline-offset: 2px;
+  }
+
+  .sia-navbar__siteMenuBody {
+    padding: 14px 14px 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 0;
+  }
+
+  .sia-navbar__search--menu {
+    width: 100%;
+    max-width: none;
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+
+  .sia-navbar__search--menu .sia-navbar__searchInput {
+    font-size: 0.95rem;
+  }
+
+  .sia-navbar__siteMenuActions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sia-navbar__profile--menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    height: auto;
+    min-height: 48px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 1.35rem;
+    text-align: left;
+  }
+
+  .sia-navbar__siteMenuActionLabel {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--sia-text);
+  }
+
+  .sia-navbar__signin--menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
 }
 

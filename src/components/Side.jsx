@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../styles/Sidebar.css'
+import { useLocation } from 'react-router-dom'
 import { useAccessTier } from '../context/AccessTierContext'
 import SidenavList from './SidenavList'
 import SidenavStartHerePremiumGate from './SidenavStartHerePremiumGate'
@@ -82,7 +83,11 @@ function Side({
   onNotificationsToggle,
   onCloseNotifications,
   onRailWideChange,
+  mobileNavOpen = false,
+  onMobileNavClose,
 }) {
+  const location = useLocation()
+  const pathRef = useRef(null)
   const { tier } = useAccessTier()
   const [sidebarClass, setSidebarClass] = useState('sidebar-width')
   const [openMenus, setOpenMenus] = useState(readOpenMenus)
@@ -90,6 +95,31 @@ function Side({
   const [startHereOpen, setStartHereOpen] = useState(() =>
     readStored(SS_START, false)
   )
+
+  const [isMobileLayout, setIsMobileLayout] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767.98px)')
+    const apply = () => setIsMobileLayout(mq.matches)
+    apply()
+    mq.addEventListener('change', apply)
+    return () => mq.removeEventListener('change', apply)
+  }, [])
+
+  useEffect(() => {
+    if (mobileNavOpen) setSidebarClass('sidebar-width')
+  }, [mobileNavOpen])
+
+  useEffect(() => {
+    if (pathRef.current === null) {
+      pathRef.current = location.pathname
+      return
+    }
+    if (pathRef.current !== location.pathname) {
+      pathRef.current = location.pathname
+      onMobileNavClose?.()
+    }
+  }, [location.pathname, onMobileNavClose])
 
   useEffect(() => {
     sessionStorage.setItem(SS_VIEWS, JSON.stringify(viewsOpen))
@@ -110,6 +140,10 @@ function Side({
   }, [expanded, onRailWideChange])
 
   function toggleSidebar() {
+    if (isMobileLayout) {
+      onMobileNavClose?.()
+      return
+    }
     setSidebarClass((prev) =>
       prev === 'sidebar-width' ? 'sidebar-width-sm' : 'sidebar-width'
     )
@@ -117,6 +151,15 @@ function Side({
     setViewsOpen(false)
     setStartHereOpen(false)
     onCloseNotifications?.()
+  }
+
+  function handleMobileNavLinkIntent(event) {
+    if (!isMobileLayout) return
+    const link = event.target.closest('a[href]')
+    if (!link) return
+    const href = link.getAttribute('href')
+    if (!href || href.startsWith('#')) return
+    onMobileNavClose?.()
   }
 
   function setMenuOpen(key, open) {
@@ -136,15 +179,25 @@ function Side({
       className={`${sidebarClass} side-bg pageHieght sidebar-pd sidebar-shell${
         panelOpen ? ' sidebar-pd--menu-open' : ''
       }`}
+      onClickCapture={handleMobileNavLinkIntent}
     >
       <button
         type="button"
         className="sidebar-toggle-btn"
         onClick={toggleSidebar}
-        aria-expanded={expanded}
-        aria-label={expanded ? 'Collapse sidebar' : 'Expand sidebar'}
+        aria-expanded={isMobileLayout ? mobileNavOpen : expanded}
+        aria-label={
+          isMobileLayout
+            ? 'Close menu'
+            : expanded
+              ? 'Collapse sidebar'
+              : 'Expand sidebar'
+        }
       >
-        <i className="bi bi-layout-sidebar" aria-hidden="true" />
+        <i
+          className={`bi ${isMobileLayout ? 'bi-x-lg' : 'bi-layout-sidebar'}`}
+          aria-hidden="true"
+        />
       </button>
 
       <nav className="sidebar-nav sidebar-nav--grow" aria-label="Main">
@@ -178,7 +231,10 @@ function Side({
 
       <SidebarFooter
         notificationsOpen={notificationsOpen}
-        onNotificationsToggle={onNotificationsToggle}
+        onNotificationsToggle={() => {
+          onNotificationsToggle?.()
+          if (isMobileLayout) onMobileNavClose?.()
+        }}
       />
     </div>
   )

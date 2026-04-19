@@ -35,6 +35,77 @@
   margin-top: 0;
 }
 
+.sia-home__subnavWrap {
+  width: 100%;
+}
+
+.sia-home__subnavStrip {
+  position: relative;
+  width: 100%;
+}
+
+.sia-home__subnav--overflow {
+  /* keep first/last pills clear of edge scroll controls */
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.sia-home__subnavScrollBtn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  color: var(--sia-accent-bright);
+  font-size: 1.35rem;
+  line-height: 1;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.sia-home__subnavScrollBtn--left {
+  left: 0;
+  border-radius: 0 0 0 10px;
+  background: linear-gradient(
+    to right,
+    var(--sia-main) 0%,
+    var(--sia-main) 35%,
+    transparent 100%
+  );
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.12);
+}
+
+.sia-home__subnavScrollBtn--right {
+  right: 0;
+  border-radius: 0 0 10px 0;
+  background: linear-gradient(
+    to left,
+    var(--sia-main) 0%,
+    var(--sia-main) 35%,
+    transparent 100%
+  );
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.12);
+}
+
+.sia-home__subnavScrollBtn:hover {
+  color: var(--sia-text);
+  background: var(--sia-accent-fill);
+}
+
+.sia-home__subnavScrollBtn:focus-visible {
+  outline: 2px solid var(--sia-accent);
+  outline-offset: -2px;
+}
+
 /* Premium pill: squircle icon + label (reference-style) */
 .sia-home__subnavLink {
   display: inline-flex;
