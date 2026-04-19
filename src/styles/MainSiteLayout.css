@@ -250,6 +250,10 @@
   margin: 0 auto;
 }
 
+.sia-page--wide {
+  max-width: 72rem;
+}
+
 .sia-page__title {
   margin: 0 0 10px;
   font-size: 1.35rem;

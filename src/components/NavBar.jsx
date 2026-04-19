@@ -136,6 +136,7 @@ function NavBar() {
               href="/signin"
               onClick={() => setSiteMenuOpen(false)}
             >
+              <i className="bi bi-box-arrow-in-right" aria-hidden="true" />
               Sign in
             </a>
           </div>
@@ -223,6 +224,7 @@ function NavBar() {
           <i className="bi bi-person-circle" aria-hidden="true" />
         </button>
         <a className="sia-navbar__signin" href="/signin">
+          <i className="bi bi-box-arrow-in-right" aria-hidden="true" />
           Sign in
         </a>
       </div>

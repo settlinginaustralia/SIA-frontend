@@ -14,19 +14,19 @@ const tutorialFilterGroups = [
     title: 'Free',
     access: 'free',
     items: [
-      { label: 'Overview', view: 'overview' },
-      { label: 'Guides', view: 'guides' },
-      { label: 'Videos', view: 'videos' },
+      { label: 'Overview', view: 'overview', icon: 'bi bi-grid-1x2' },
+      { label: 'Guides', view: 'guides', icon: 'bi bi-journal-bookmark' },
+      { label: 'Videos', view: 'videos', icon: 'bi bi-play-circle' },
     ],
   },
   {
     title: 'Premium',
     access: 'premium',
     items: [
-      { label: 'Deep dives', view: 'deep-dives' },
-      { label: 'Expert sessions', view: 'expert' },
-      { label: 'Full library', view: 'library' },
-      { label: 'Course', view: 'course' },
+      { label: 'Deep dives', view: 'deep-dives', icon: 'bi bi-bezier2' },
+      { label: 'Expert sessions', view: 'expert', icon: 'bi bi-person-badge' },
+      { label: 'Full library', view: 'library', icon: 'bi bi-collection' },
+      { label: 'Course', view: 'course', icon: 'bi bi-mortarboard' },
     ],
   },
 ]

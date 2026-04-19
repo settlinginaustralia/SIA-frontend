@@ -13,6 +13,10 @@ import Faq from './pages/Faq'
 import Contact from './pages/Contact'
 import Settings from './pages/Settings'
 import Community from './pages/Community'
+import SignIn from './pages/SignIn'
+import Logout from './pages/Logout'
+import Tutorials from './pages/Tutorials'
+import Downloads from './pages/Downloads'
 import './styles/global.css'
 import './styles/responsive.css'
 
@@ -39,6 +43,10 @@ function App() {
                   <Route path="contact" element={<Contact />} />
                   <Route path="settings" element={<Settings />} />
                   <Route path="community" element={<Community />} />
+                  <Route path="signin" element={<SignIn />} />
+                  <Route path="logout" element={<Logout />} />
+                  <Route path="tutorials" element={<Tutorials />} />
+                  <Route path="downloads" element={<Downloads />} />
                 </Route>
               </Route>
             </Routes>

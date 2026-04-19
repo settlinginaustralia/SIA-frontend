@@ -6,6 +6,7 @@ import React, {
   useState,
 } from 'react'
 import '../styles/MainSiteLayout.css'
+import '../styles/SiaCard.css'
 import { NavLink, Outlet, useOutletContext } from 'react-router-dom'
 import NavBar from './NavBar'
 import ProfilePanel from './ProfilePanel'

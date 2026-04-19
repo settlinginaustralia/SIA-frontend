@@ -9,8 +9,8 @@ function SidenavStartHerePremiumGate({ sidebarExpanded }) {
     >
       <a
         className="sidebar-nav-item sidebar-starthere-gate__link"
-        href="/upgrade"
-        title="Start Here is a Premium feature — upgrade to unlock path selection"
+        href="/membership"
+        title="View Membership pricing to unlock Start Here pathways"
       >
         <i className="bi bi-lock-fill sidebar-nav-item__icon" aria-hidden="true" />
         <span className="sidebar-nav-item__label">Start Here</span>
@@ -20,7 +20,7 @@ function SidenavStartHerePremiumGate({ sidebarExpanded }) {
       </a>
       {sidebarExpanded ? (
         <p className="sidebar-starthere-gate__hint">
-          Upgrade to unlock path selection and guided pathways.
+          View Membership pricing to unlock path selection and guided pathways.
         </p>
       ) : null}
     </div>

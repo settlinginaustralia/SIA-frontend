@@ -5,6 +5,17 @@ function buildTutorialFilterHref(access, view) {
   return `/tutorials?${params.toString()}`
 }
 
+function DropdownLinkContent({ icon, label }) {
+  return (
+    <>
+      {icon ? (
+        <i className={`sidebar-dropdown__linkIcon ${icon}`} aria-hidden="true" />
+      ) : null}
+      <span className="sidebar-dropdown__linkLabel">{label}</span>
+    </>
+  )
+}
+
 function SidenavDropdown({
   icon,
   text,
@@ -77,7 +88,7 @@ function SidenavDropdown({
                         href={buildTutorialFilterHref(group.access, item.view)}
                         role="menuitem"
                       >
-                        {item.label}
+                        <DropdownLinkContent icon={item.icon} label={item.label} />
                       </a>
                     </li>
                   ))}
@@ -91,7 +102,7 @@ function SidenavDropdown({
                   href={item.href}
                   role="menuitem"
                 >
-                  {item.label}
+                  <DropdownLinkContent icon={item.icon} label={item.label} />
                 </a>
               </li>
             ))}

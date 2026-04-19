@@ -1,19 +1,38 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 import { Link, useOutletContext } from 'react-router-dom'
 import { useAccessTier } from '../context/AccessTierContext'
 import '../styles/ProfilePanel.css'
+
+const USER_KEY = 'sia.user'
+
+function readUser() {
+  try {
+    const raw = localStorage.getItem(USER_KEY)
+    if (!raw) return null
+    const parsed = JSON.parse(raw)
+    if (!parsed || typeof parsed !== 'object') return null
+    return {
+      name: typeof parsed.name === 'string' ? parsed.name : '',
+      email: typeof parsed.email === 'string' ? parsed.email : '',
+    }
+  } catch {
+    return null
+  }
+}
 
 const defaultUser = {
   name: 'Yeboah Bernard',
   email: 'yeboahbernard@example.com',
 }
 
-const ProfilePanel = forwardRef(function ProfilePanel({ user = defaultUser }, ref) {
+const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
   const { tier } = useAccessTier()
   const { closeProfile, openNotifications } = useOutletContext() ?? {}
   const isPremium = tier === 'premium'
-  const displayName = user?.name ?? defaultUser.name
-  const displayEmail = user?.email ?? defaultUser.email
+  const storedUser = useMemo(() => readUser(), [])
+  const resolvedUser = user ?? storedUser ?? defaultUser
+  const displayName = resolvedUser?.name ?? defaultUser.name
+  const displayEmail = resolvedUser?.email ?? defaultUser.email
 
   return (
     <aside
@@ -130,8 +149,8 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user = defaultUser }, re
             </Link>
           </li>
           <li className="main-profile-rail__menuItem--logout">
-            <button
-              type="button"
+            <Link
+              to="/logout"
               className="main-profile-rail__menuRow main-profile-rail__menuRow--logout"
               onClick={() => closeProfile?.()}
             >
@@ -140,7 +159,7 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user = defaultUser }, re
                 aria-hidden="true"
               />
               <span>Logout</span>
-            </button>
+            </Link>
           </li>
           </ul>
         </nav>

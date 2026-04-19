@@ -21,7 +21,7 @@ function readTier() {
   } catch {
     /* ignore */
   }
-  return 'free'
+  return 'premium'
 }
 
 /**

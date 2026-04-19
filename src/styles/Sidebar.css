@@ -413,6 +413,18 @@ a.sidebar-footer__iconLink:focus-visible,
   transition: background 0.15s ease, color 0.15s ease;
 }
 
+.sidebar-dropdown__linkIcon {
+  width: 1.2rem;
+  display: inline-flex;
+  justify-content: center;
+  margin-right: 10px;
+  opacity: 0.95;
+}
+
+.sidebar-dropdown__linkLabel {
+  display: inline;
+}
+
 .sidebar-dropdown__link:hover {
   background: var(--sia-accent-fill-hover);
   color: var(--sia-accent-bright);
