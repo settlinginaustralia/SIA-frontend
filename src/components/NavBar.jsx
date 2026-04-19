@@ -6,7 +6,7 @@ import React, {
   useState,
 } from 'react'
 import '../styles/NavBar.css'
-import { useOutletContext } from 'react-router-dom'
+import { Link, useOutletContext } from 'react-router-dom'
 
 function readIsMobile() {
   if (typeof window === 'undefined') return false
@@ -131,14 +131,14 @@ function NavBar() {
               <i className="bi bi-person-circle" aria-hidden="true" />
               <span className="sia-navbar__siteMenuActionLabel">Profile</span>
             </button>
-            <a
+            <Link
               className="sia-navbar__signin sia-navbar__signin--menu"
-              href="/signin"
+              to="/signin"
               onClick={() => setSiteMenuOpen(false)}
             >
               <i className="bi bi-box-arrow-in-right" aria-hidden="true" />
               Sign in
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -223,10 +223,10 @@ function NavBar() {
         >
           <i className="bi bi-person-circle" aria-hidden="true" />
         </button>
-        <a className="sia-navbar__signin" href="/signin">
+        <Link className="sia-navbar__signin" to="/signin">
           <i className="bi bi-box-arrow-in-right" aria-hidden="true" />
           Sign in
-        </a>
+        </Link>
       </div>
     </header>
   )

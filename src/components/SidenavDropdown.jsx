@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 
 function buildTutorialFilterHref(access, view) {
   const params = new URLSearchParams({ access, view })
@@ -83,13 +84,13 @@ function SidenavDropdown({
                 >
                   {group.items.map((item) => (
                     <li key={`${group.access}-${item.view}`} role="none">
-                      <a
+                      <Link
                         className="sidebar-dropdown__link"
-                        href={buildTutorialFilterHref(group.access, item.view)}
+                        to={buildTutorialFilterHref(group.access, item.view)}
                         role="menuitem"
                       >
                         <DropdownLinkContent icon={item.icon} label={item.label} />
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -97,13 +98,13 @@ function SidenavDropdown({
             ))
           : items.map((item, index) => (
               <li key={`${item.href}-${item.label}-${index}`} role="none">
-                <a
+                <Link
                   className="sidebar-dropdown__link"
-                  href={item.href}
+                  to={item.href}
                   role="menuitem"
                 >
                   <DropdownLinkContent icon={item.icon} label={item.label} />
-                </a>
+                </Link>
               </li>
             ))}
       </ul>

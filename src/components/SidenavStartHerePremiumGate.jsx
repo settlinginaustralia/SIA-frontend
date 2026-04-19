@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 /** Shown to free users: Start Here exists but path selection is premium-only */
 function SidenavStartHerePremiumGate({ sidebarExpanded }) {
@@ -7,9 +8,9 @@ function SidenavStartHerePremiumGate({ sidebarExpanded }) {
       className="sidebar-starthere-gate"
       data-sidebar-branch="start-here"
     >
-      <a
+      <Link
         className="sidebar-nav-item sidebar-starthere-gate__link"
-        href="/membership"
+        to="/membership"
         title="View Membership pricing to unlock Start Here pathways"
       >
         <i className="bi bi-lock-fill sidebar-nav-item__icon" aria-hidden="true" />
@@ -17,7 +18,7 @@ function SidenavStartHerePremiumGate({ sidebarExpanded }) {
         {sidebarExpanded ? (
           <span className="sidebar-premium-badge ms-auto">Premium</span>
         ) : null}
-      </a>
+      </Link>
       {sidebarExpanded ? (
         <p className="sidebar-starthere-gate__hint">
           View Membership pricing to unlock path selection and guided pathways.
