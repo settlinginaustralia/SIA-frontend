@@ -16,10 +16,16 @@ import Community from './pages/Community'
 import './styles/global.css'
 import './styles/responsive.css'
 
+/* BASE_URL is e.g. "/" locally or "/SIA-frontend/" on GitHub Project Pages */
+const routerBasename =
+  import.meta.env.BASE_URL === '/'
+    ? undefined
+    : import.meta.env.BASE_URL.replace(/\/$/, '')
+
 function App() {
   return (
     <div className="sia-app-root">
-      <BrowserRouter>
+      <BrowserRouter basename={routerBasename}>
         <ThemeProvider>
           <AccessTierProvider>
             <Routes>

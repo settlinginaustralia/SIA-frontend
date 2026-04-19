@@ -123,21 +123,31 @@
     overscroll-behavior-x: contain;
     gap: 10px;
     padding: 10px 12px 12px;
-    margin: 0 -4px;
+    /* Avoid horizontal bleed past the strip — was causing pills to peek left of the overlay. */
+    margin-left: 0;
+    margin-right: 0;
     scrollbar-width: none;
   }
 
   .sia-home__subnavWrap {
-    margin: 0 -2px;
+    margin-left: -4px;
+    padding-right: 4px;
   }
 
-  .sia-home__subnav--overflow {
-    padding-left: 44px;
-    padding-right: 44px;
+  .sia-home__subnav--padStart {
+    padding-left: 48px;
+  }
+
+  .sia-home__subnav--padEnd {
+    padding-right: 48px;
+  }
+
+  .sia-home__subnavScrollBtn--left,
+  .sia-home__subnavScrollBtn--right {
+    width: 30px;
   }
 
   .sia-home__subnavScrollBtn {
-    width: 44px;
     font-size: 1.45rem;
   }
 

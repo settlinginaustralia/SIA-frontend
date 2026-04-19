@@ -42,63 +42,70 @@
 .sia-home__subnavStrip {
   position: relative;
   width: 100%;
+  background-color: var(--sia-main);
+  isolation: isolate;
 }
 
-.sia-home__subnav--overflow {
-  /* keep first/last pills clear of edge scroll controls */
-  padding-left: 40px;
-  padding-right: 40px;
+/* Only pad the side where a scroll control is visible — avoids a light gap
+   when the opposite control is hidden (e.g. flush left at scroll start). */
+.sia-home__subnav--padStart {
+  /* Match .sia-home__subnavScrollBtn--* width so content clears the opaque cap. */
+  padding-left: 44px;
+}
+
+.sia-home__subnav--padEnd {
+  padding-right: 44px;
 }
 
 .sia-home__subnavScrollBtn {
   position: absolute;
   top: 0;
   bottom: 0;
-  z-index: 3;
+  z-index: 4;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
   margin: 0;
   padding: 0;
   border: none;
+  border-radius: 0;
   cursor: pointer;
   color: var(--sia-accent-bright);
   font-size: 1.35rem;
   line-height: 1;
+  background-color: var(--sia-main);
+  background-clip: padding-box;
   transition:
-    background 0.2s ease,
+    background-color 0.2s ease,
     color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
+/* Wider solid edge so nothing from the pills peeks past (mirrors the “clean” right side). */
 .sia-home__subnavScrollBtn--left {
   left: 0;
-  border-radius: 0 0 0 10px;
-  background: linear-gradient(
-    to right,
-    var(--sia-main) 0%,
-    var(--sia-main) 35%,
-    transparent 100%
-  );
-  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.12);
+  width: 44px;
+  padding-right: 4px;
+  box-sizing: border-box;
+  justify-content: flex-end;
+  box-shadow:
+    12px 0 24px var(--sia-main),
+    1px 0 0 var(--sia-main);
 }
 
 .sia-home__subnavScrollBtn--right {
   right: 0;
-  border-radius: 0 0 10px 0;
-  background: linear-gradient(
-    to left,
-    var(--sia-main) 0%,
-    var(--sia-main) 35%,
-    transparent 100%
-  );
-  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.12);
+  width: 44px;
+  padding-left: 4px;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  box-shadow:
+    -12px 0 24px var(--sia-main),
+    -1px 0 0 var(--sia-main);
 }
 
 .sia-home__subnavScrollBtn:hover {
   color: var(--sia-text);
-  background: var(--sia-accent-fill);
+  background-color: var(--sia-accent-fill);
 }
 
 .sia-home__subnavScrollBtn:focus-visible {

@@ -123,8 +123,8 @@ function MainSiteLayout() {
             <nav
               ref={subnavRef}
               className={`sia-home__subnav${
-                subnavScrollHint.overflow ? ' sia-home__subnav--overflow' : ''
-              }`}
+                subnavScrollHint.left ? ' sia-home__subnav--padStart' : ''
+              }${subnavScrollHint.right ? ' sia-home__subnav--padEnd' : ''}`}
               aria-label="Site sections"
             >
               {mainNavLinks.map(({ label, to, icon }) => (
