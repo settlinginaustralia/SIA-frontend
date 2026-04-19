@@ -4,8 +4,8 @@ import { useAccessTier } from '../context/AccessTierContext'
 import '../styles/ProfilePanel.css'
 
 const defaultUser = {
-  name: 'Alex Johnson',
-  email: 'alex.johnson@example.com',
+  name: 'Yeboah Bernard',
+  email: 'yeboahbernard@example.com',
 }
 
 const ProfilePanel = forwardRef(function ProfilePanel({ user = defaultUser }, ref) {

@@ -197,21 +197,21 @@
     width: auto !important;
   }
 
-  /* Profile sheet — anchored for small viewports */
+  /* Profile panel — anchor below the first navbar row (desktop-style) */
   .main-profile-rail {
     position: fixed;
     left: max(10px, env(safe-area-inset-left));
     right: max(10px, env(safe-area-inset-right));
-    top: auto;
-    bottom: max(10px, env(safe-area-inset-bottom));
+    top: calc(var(--profile-rail-top, 120px) + 8px);
+    bottom: auto;
     width: auto;
     max-width: none;
-    height: min(72vh, 520px);
+    height: min(60vh, 520px);
     max-height: calc(100dvh - var(--profile-rail-top, 120px) - 24px);
     z-index: 1080;
     border-radius: 18px;
     box-shadow:
-      0 -8px 40px rgba(0, 0, 0, 0.35),
+      0 18px 44px rgba(0, 0, 0, 0.5),
       0 0 0 1px var(--sia-accent-border-soft);
   }
 }
