@@ -1,12 +1,12 @@
 import React from 'react'
+import { useLanguage } from '../context/LanguageContext'
 
 function Community() {
+  const { t } = useLanguage()
   return (
     <div className="sia-page">
-      <h1 className="sia-page__title">Community</h1>
-      <p className="sia-page__lead">
-        Connect with others settling in Australia. More content coming soon.
-      </p>
+      <h1 className="sia-page__title">{t('pages.communityTitle')}</h1>
+      <p className="sia-page__lead">{t('pages.communityLead')}</p>
     </div>
   )
 }

@@ -1,12 +1,12 @@
 import React from 'react'
+import { useLanguage } from '../context/LanguageContext'
 
 function About() {
+  const { t } = useLanguage()
   return (
     <div className="sia-page">
-      <h1 className="sia-page__title">About</h1>
-      <p className="sia-page__lead">
-        Learn more about Settling In Australia and how we help newcomers.
-      </p>
+      <h1 className="sia-page__title">{t('pages.aboutTitle')}</h1>
+      <p className="sia-page__lead">{t('pages.aboutLead')}</p>
     </div>
   )
 }

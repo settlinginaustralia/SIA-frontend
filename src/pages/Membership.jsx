@@ -1,12 +1,12 @@
 import React from 'react'
+import { useLanguage } from '../context/LanguageContext'
 
 function Membership() {
+  const { t } = useLanguage()
   return (
     <div className="sia-page">
-      <h1 className="sia-page__title">Membership (Pricing)</h1>
-      <p className="sia-page__lead">
-        Compare plans and choose the membership that fits your journey.
-      </p>
+      <h1 className="sia-page__title">{t('pages.membershipTitle')}</h1>
+      <p className="sia-page__lead">{t('pages.membershipLead')}</p>
     </div>
   )
 }

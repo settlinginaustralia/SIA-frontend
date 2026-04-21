@@ -1,12 +1,12 @@
 import React from 'react'
+import { useLanguage } from '../context/LanguageContext'
 
 function Contact() {
+  const { t } = useLanguage()
   return (
     <div className="sia-page">
-      <h1 className="sia-page__title">Contact</h1>
-      <p className="sia-page__lead">
-        Get in touch with questions, feedback, or partnership ideas.
-      </p>
+      <h1 className="sia-page__title">{t('pages.contactTitle')}</h1>
+      <p className="sia-page__lead">{t('pages.contactLead')}</p>
     </div>
   )
 }

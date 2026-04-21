@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAccessTier } from '../context/AccessTierContext'
+import { useLanguage } from '../context/LanguageContext'
 
 const USER_KEY = 'sia.user'
 
@@ -21,6 +22,7 @@ function readUser() {
 
 function SignIn() {
   const navigate = useNavigate()
+  const { t } = useLanguage()
   const { tier, setTier } = useAccessTier()
   const existing = useMemo(() => readUser(), [])
   const [name, setName] = useState(existing?.name ?? '')

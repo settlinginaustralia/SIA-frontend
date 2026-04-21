@@ -1,12 +1,12 @@
 import React from 'react'
+import { useLanguage } from '../context/LanguageContext'
 
 function Faq() {
+  const { t } = useLanguage()
   return (
     <div className="sia-page">
-      <h1 className="sia-page__title">FAQ</h1>
-      <p className="sia-page__lead">
-        Answers to common questions about the platform and membership.
-      </p>
+      <h1 className="sia-page__title">{t('pages.faqTitle')}</h1>
+      <p className="sia-page__lead">{t('pages.faqLead')}</p>
     </div>
   )
 }

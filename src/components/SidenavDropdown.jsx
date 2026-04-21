@@ -72,7 +72,7 @@ function SidenavDropdown({
         {hasFilterGroups
           ? filterGroups.map((group) => (
               <li
-                key={group.title}
+                key={group.access ?? group.title}
                 className="sidebar-dropdown__group"
                 role="presentation"
               >
@@ -80,7 +80,7 @@ function SidenavDropdown({
                 <ul
                   className="sidebar-dropdown__group-list"
                   role="group"
-                  aria-label={`${group.title} tutorials`}
+                  aria-label={group.listAriaLabel ?? group.title}
                 >
                   {group.items.map((item) => (
                     <li key={`${group.access}-${item.view}`} role="none">
