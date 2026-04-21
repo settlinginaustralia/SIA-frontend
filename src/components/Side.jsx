@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import '../styles/Sidebar.css'
 import { useLocation } from 'react-router-dom'
 import { useAccessTier } from '../context/AccessTierContext'
+import { pathSelectionLinks } from '../data/pathSelectionLinks'
 import SidenavList from './SidenavList'
 import SidenavStartHerePremiumGate from './SidenavStartHerePremiumGate'
 import SidenavStartHereSection from './SidenavStartHereSection'
@@ -35,17 +36,6 @@ const downloadViews = [
   { label: 'All files', href: '/downloads?view=all' },
   { label: 'Recent', href: '/downloads?view=recent' },
   { label: 'Starred', href: '/downloads?view=starred' },
-]
-
-const pathSelectionLinks = [
-  { icon: 'bi bi-mortarboard', text: 'Study Pathway', href: '/path/study-pathway' },
-  { icon: 'bi bi-briefcase', text: 'Work Pathway', href: '/path/work-pathway' },
-  {
-    icon: 'bi bi-globe2',
-    text: 'Skilled Migration',
-    href: '/path/skilled-migration',
-  },
-  { icon: 'bi bi-house-heart', text: 'Settlement', href: '/path/settlement' },
 ]
 
 const SS_VIEWS = 'sia.sidebar.viewsOpen'

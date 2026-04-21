@@ -11,16 +11,33 @@
   top: 0;
   z-index: 45;
   margin-bottom: 6px;
+  padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: 2px;
   background: var(--sia-main);
 }
 
-.sia-home__navbarRow {
-  width: 100%;
+/* Soft scrim below the sticky block so scrolling content doesn’t “hard cut” under the nav */
+.sia-home__stickyTop::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: clamp(12px, 2.25vh, 28px);
+  pointer-events: none;
+  z-index: 50;
+  background: linear-gradient(to bottom, var(--sia-main), transparent);
+  background: linear-gradient(
+    to bottom,
+    var(--sia-main) 0%,
+    color-mix(in srgb, var(--sia-main) 38%, transparent) 32%,
+    color-mix(in srgb, var(--sia-main) 10%, transparent) 62%,
+    transparent 92%
+  );
 }
 
-.sia-home__stickyTop .sia-navbar {
-  margin-top: 0;
+.sia-home__navbarRow {
+  width: 100%;
 }
 
 .sia-home__subnav {
@@ -242,7 +259,10 @@
   z-index: 0;
   flex: 1 1 auto;
   min-height: 0;
-  padding: 8px 1vh 20px;
+  min-width: 0;
+  /* Room above page body; extra bottom so content does not sit flush to the scroll end */
+  padding: 24px 1vh 40px;
+  overflow-x: hidden;
 }
 
 .sia-page {

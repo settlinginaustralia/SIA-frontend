@@ -33,20 +33,29 @@
   min-width: 0;
   min-height: 0;
 }
+/* Mirrors `.pageHieght` + card chrome: gutters use app body (`--sia-bg`) like the sidebar rail */
 .main-content-width {
-  flex: 1;
+  flex: 1 1 auto;
+  align-self: stretch;
   min-height: 0;
-  background-color: var(--sia-main);
+  height: calc(100% - 1vh);
+  max-height: calc(100% - 1.7vh);
+  margin: 1vh 8px 1vh 4px;
+  margin-left: -0.5vh;
+  border: none;
   border-radius: 15px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  border: 1px solid var(--sia-accent-border-soft);
-  box-shadow: inset 0 1px 0 var(--sia-accent-glow);
+  background-color: var(--sia-main);
+  /* Vertical rules via inset shadow: follows border-radius cleanly (no broken corner joins) */
+  box-shadow:
+    inset 1px 0 0 0 var(--sia-accent-border-soft),
+    inset -1px 0 0 0 var(--sia-accent-border-soft);
 }
 
 /* Scrollable main content */
 .main-scrollable {
   min-height: 0;
+  overflow-x: hidden;
   overflow-y: auto;
-  padding: 20px;
+  /* Top padding would sit above the sticky header; spacing lives on .sia-home__main */
+  padding: 0 20px 28px;
 }
