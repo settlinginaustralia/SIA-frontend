@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
 import { useTheme } from '../context/ThemeContext'
 
 function themeTriggerIcon(themeMode) {
@@ -9,6 +10,7 @@ function themeTriggerIcon(themeMode) {
 }
 
 function SidebarFooter({ notificationsOpen, onNotificationsToggle }) {
+  const { t } = useLanguage()
   const { themeMode, setThemeMode } = useTheme()
   const [themeMenuOpen, setThemeMenuOpen] = useState(false)
   const themeWrapRef = useRef(null)
@@ -38,7 +40,7 @@ function SidebarFooter({ notificationsOpen, onNotificationsToggle }) {
     <footer
       className="sidebar-footer"
       data-sidebar-branch="sidebar-footer"
-      aria-label="Sidebar tools"
+      aria-label={t('sidebar.footerAria')}
     >
       <div className="sidebar-footer__row">
         <NavLink
@@ -46,8 +48,8 @@ function SidebarFooter({ notificationsOpen, onNotificationsToggle }) {
           className={({ isActive }) =>
             `sidebar-footer__iconLink${isActive ? ' sidebar-footer__iconLink--active' : ''}`
           }
-          aria-label="Settings"
-          title="Settings"
+          aria-label={t('sidebar.settingsAria')}
+          title={t('sidebar.settingsTitle')}
         >
           <i className="bi bi-gear" aria-hidden="true" />
         </NavLink>
@@ -56,8 +58,8 @@ function SidebarFooter({ notificationsOpen, onNotificationsToggle }) {
           className={({ isActive }) =>
             `sidebar-footer__iconLink${isActive ? ' sidebar-footer__iconLink--active' : ''}`
           }
-          aria-label="Help"
-          title="Help"
+          aria-label={t('sidebar.helpAria')}
+          title={t('sidebar.helpTitle')}
         >
           <i className="bi bi-question-circle" aria-hidden="true" />
         </NavLink>
@@ -69,8 +71,8 @@ function SidebarFooter({ notificationsOpen, onNotificationsToggle }) {
             }`}
             aria-expanded={themeMenuOpen}
             aria-haspopup="true"
-            aria-label="Theme: choose light, dark, or system"
-            title="Theme"
+            aria-label={t('sidebar.themeAria')}
+            title={t('sidebar.themeTitle')}
             onClick={() => setThemeMenuOpen((o) => !o)}
           >
             <i
@@ -93,7 +95,7 @@ function SidebarFooter({ notificationsOpen, onNotificationsToggle }) {
                   onClick={() => pickTheme('light')}
                 >
                   <i className="bi bi-sun-fill" aria-hidden="true" />
-                  Light
+                  {t('sidebar.themeLight')}
                 </button>
               </li>
               <li role="none">
@@ -108,7 +110,7 @@ function SidebarFooter({ notificationsOpen, onNotificationsToggle }) {
                   onClick={() => pickTheme('dark')}
                 >
                   <i className="bi bi-moon-stars-fill" aria-hidden="true" />
-                  Dark
+                  {t('sidebar.themeDark')}
                 </button>
               </li>
               <li role="none">
@@ -123,7 +125,7 @@ function SidebarFooter({ notificationsOpen, onNotificationsToggle }) {
                   onClick={() => pickTheme('system')}
                 >
                   <i className="bi bi-circle-half" aria-hidden="true" />
-                  System
+                  {t('sidebar.themeSystem')}
                 </button>
               </li>
             </ul>
@@ -135,8 +137,8 @@ function SidebarFooter({ notificationsOpen, onNotificationsToggle }) {
           className={`sidebar-footer__notify${
             notificationsOpen ? ' sidebar-footer__notify--active' : ''
           }`}
-          aria-label="Notifications"
-          title="Notifications"
+          aria-label={t('sidebar.notificationsAria')}
+          title={t('sidebar.notificationsTitle')}
           aria-pressed={!!notificationsOpen}
           onClick={() => onNotificationsToggle?.()}
         >

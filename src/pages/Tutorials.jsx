@@ -1,16 +1,7 @@
 import React, { useMemo } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useAccessTier } from '../context/AccessTierContext'
-
-const LABELS = {
-  overview: 'Overview',
-  guides: 'Guides',
-  videos: 'Videos',
-  'deep-dives': 'Deep dives',
-  expert: 'Expert sessions',
-  library: 'Full library',
-  course: 'Course',
-}
+import { useLanguage } from '../context/LanguageContext'
 
 const VIEW_ICONS = {
   overview: 'bi-grid-1x2',
@@ -22,45 +13,65 @@ const VIEW_ICONS = {
   course: 'bi-mortarboard',
 }
 
-const GROUPS = [
-  { access: 'free', title: 'Free tutorials', views: ['overview', 'guides', 'videos'] },
+const VIEW_I18N = {
+  overview: 'tutorials.views.overview',
+  guides: 'tutorials.views.guides',
+  videos: 'tutorials.views.videos',
+  'deep-dives': 'tutorials.views.deepDives',
+  expert: 'tutorials.views.expert',
+  library: 'tutorials.views.library',
+  course: 'tutorials.views.course',
+}
+
+const GROUP_DEFS = [
+  { access: 'free', titleKey: 'tutorials.groupFree', views: ['overview', 'guides', 'videos'] },
   {
     access: 'premium',
-    title: 'Premium tutorials',
+    titleKey: 'tutorials.groupPremium',
     views: ['deep-dives', 'expert', 'library', 'course'],
   },
 ]
 
 function Tutorials() {
+  const { t } = useLanguage()
   const { tier } = useAccessTier()
   const [params] = useSearchParams()
   const access = params.get('access') || 'free'
   const view = params.get('view') || 'overview'
 
-  const viewLabel = LABELS[view] || view
+  const viewLabelKey = VIEW_I18N[view]
+  const viewLabel = viewLabelKey ? t(viewLabelKey) : view
   const locked = access === 'premium' && tier !== 'premium'
 
+  const groups = useMemo(
+    () =>
+      GROUP_DEFS.map((g) => ({
+        access: g.access,
+        title: t(g.titleKey),
+        views: g.views,
+      })),
+    [t]
+  )
+
   const visibleGroups = useMemo(() => {
-    if (tier === 'premium') return GROUPS
-    return GROUPS.filter((g) => g.access !== 'premium')
-  }, [tier])
+    if (tier === 'premium') return groups
+    return groups.filter((g) => g.access !== 'premium')
+  }, [tier, groups])
 
   return (
     <div className="sia-page sia-page--wide">
-      <h1 className="sia-page__title">Tutorials</h1>
+      <h1 className="sia-page__title">{t('tutorials.title')}</h1>
 
       {locked ? (
-        <section className="sia-card" aria-label="Premium locked">
-          <h2 className="sia-card__title">Premium tutorial</h2>
-          <p className="sia-card__body">
-            This tutorial category is for Premium members. Upgrade to unlock it.
-          </p>
+        <section className="sia-card" aria-label={t('tutorials.lockTitle')}>
+          <h2 className="sia-card__title">{t('tutorials.lockTitle')}</h2>
+          <p className="sia-card__body">{t('tutorials.lockBody')}</p>
           <div style={{ marginTop: 12 }}>
             <Link className="sia-home__subnavLink" to="/membership">
               <span className="sia-home__subnavIcon" aria-hidden="true">
                 <i className="bi bi-credit-card" />
               </span>
-              <span className="sia-home__subnavLabel">View Membership pricing</span>
+              <span className="sia-home__subnavLabel">{t('tutorials.viewPricing')}</span>
             </Link>
           </div>
         </section>
@@ -68,14 +79,16 @@ function Tutorials() {
 
       <section
         className="sia-card sia-card--browse"
-        aria-label="Browse tutorial categories"
+        aria-label={t('tutorials.browseAria')}
         style={{ marginTop: 14 }}
       >
-        <h2 className="sia-card__title">Browse</h2>
+        <h2 className="sia-card__title">{t('tutorials.browseTitle')}</h2>
         <div className="sia-browseGrid">
           {visibleGroups.flatMap((g) =>
             g.views.map((v) => {
               const href = `/tutorials?access=${encodeURIComponent(g.access)}&view=${encodeURIComponent(v)}`
+              const labelKey = VIEW_I18N[v]
+              const label = labelKey ? t(labelKey) : v
               return (
                 <Link
                   key={`${g.access}-${v}`}
@@ -85,9 +98,7 @@ function Tutorials() {
                   <span className="sia-home__subnavIcon sia-browseBtn__icon" aria-hidden="true">
                     <i className={`bi ${VIEW_ICONS[v] || 'bi-collection-play'}`} />
                   </span>
-                  <span className="sia-home__subnavLabel sia-browseBtn__label">
-                    {LABELS[v] || v}
-                  </span>
+                  <span className="sia-home__subnavLabel sia-browseBtn__label">{label}</span>
                 </Link>
               )
             })
@@ -102,4 +113,3 @@ function Tutorials() {
 }
 
 export default Tutorials
-

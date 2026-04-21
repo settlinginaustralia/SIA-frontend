@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import './styles/LayoutM.css'
 import { Outlet } from 'react-router-dom'
+import { useLanguage } from './context/LanguageContext'
 import Side from './components/Side'
 import NotificationsPanel from './components/NotificationsPanel'
 
 function LayoutM() {
+  const { t } = useLanguage()
   const [notificationsOpen, setNotificationsOpen] = useState(false)
   const [profileOpen, setProfileOpen] = useState(false)
   const [, setRailWide] = useState(true)
@@ -56,7 +58,7 @@ function LayoutM() {
       <button
         type="button"
         className="sia-nav-backdrop"
-        aria-label="Close navigation menu"
+        aria-label={t('sidebar.toggleCloseMobile')}
         tabIndex={-1}
         onClick={closeMobileNav}
       />

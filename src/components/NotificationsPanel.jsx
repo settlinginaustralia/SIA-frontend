@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { useLanguage } from '../context/LanguageContext'
 import '../styles/NotificationsPanel.css'
 
 function NotificationsPanel({ panelWide = true, onToggleWidth, onClose }) {
+  const { t } = useLanguage()
   const [activeTab, setActiveTab] = useState('whatsNew')
   const tabsRef = useRef(null)
   const [indicator, setIndicator] = useState({ x: 0, w: 0 })
@@ -9,16 +11,16 @@ function NotificationsPanel({ panelWide = true, onToggleWidth, onClose }) {
   const emptyCopy = useMemo(() => {
     if (activeTab === 'inbox') {
       return {
-        title: 'Inbox is empty',
-        body: 'Messages and direct notifications will appear here.',
+        title: t('notifications.emptyInboxTitle'),
+        body: t('notifications.emptyInboxBody'),
       }
     }
 
     return {
-      title: 'No notifications to show yet',
-      body: "You'll see helpful info here soon. Stay tuned!",
+      title: t('notifications.emptyGeneralTitle'),
+      body: t('notifications.emptyGeneralBody'),
     }
-  }, [activeTab])
+  }, [activeTab, t])
 
   useEffect(() => {
     const root = tabsRef.current
@@ -36,16 +38,18 @@ function NotificationsPanel({ panelWide = true, onToggleWidth, onClose }) {
     <aside
       className="main-notifications-rail side-bg"
       data-panel-wide={panelWide ? 'true' : 'false'}
-      aria-label="Notifications"
+      aria-label={t('notifications.aria')}
     >
       <div className="main-notifications-rail__header">
-        <h2 className="main-notifications-rail__title">Notifications</h2>
+        <h2 className="main-notifications-rail__title">{t('notifications.title')}</h2>
         <div className="main-notifications-rail__headerActions">
           <button
             type="button"
             className="main-notifications-rail__collapse"
             onClick={onToggleWidth}
-            aria-label={panelWide ? 'Collapse notifications panel' : 'Expand notifications panel'}
+            aria-label={
+              panelWide ? t('notifications.collapseWide') : t('notifications.collapseNarrow')
+            }
             aria-pressed={panelWide ? 'true' : 'false'}
           >
             <i className={panelWide ? 'bi bi-chevron-left' : 'bi bi-chevron-right'} aria-hidden="true" />
@@ -54,7 +58,7 @@ function NotificationsPanel({ panelWide = true, onToggleWidth, onClose }) {
             type="button"
             className="main-notifications-rail__close"
             onClick={onClose}
-            aria-label="Close notifications"
+            aria-label={t('notifications.close')}
           >
             <i className="bi bi-x-lg" aria-hidden="true" />
           </button>
@@ -63,7 +67,7 @@ function NotificationsPanel({ panelWide = true, onToggleWidth, onClose }) {
       <div
         className="main-notifications-rail__tabs"
         role="tablist"
-        aria-label="Notifications views"
+        aria-label={t('notifications.tablistAria')}
       >
         <div
           className="main-notifications-rail__tabsRow"
@@ -85,7 +89,7 @@ function NotificationsPanel({ panelWide = true, onToggleWidth, onClose }) {
           onClick={() => setActiveTab('whatsNew')}
           data-active={activeTab === 'whatsNew' ? 'true' : 'false'}
         >
-          What&apos;s new
+          {t('notifications.tabWhatsNew')}
         </button>
         <button
           type="button"
@@ -97,7 +101,7 @@ function NotificationsPanel({ panelWide = true, onToggleWidth, onClose }) {
           onClick={() => setActiveTab('inbox')}
           data-active={activeTab === 'inbox' ? 'true' : 'false'}
         >
-          Inbox
+          {t('notifications.tabInbox')}
         </button>
         </div>
       </div>

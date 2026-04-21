@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
 
-const PATH_TITLES = {
-  'study-pathway': 'Study Pathway',
-  'work-pathway': 'Work Pathway',
-  'skilled-migration': 'Skilled Migration',
-  settlement: 'Settlement',
+const PATH_KEYS = {
+  'study-pathway': 'paths.study',
+  'work-pathway': 'paths.work',
+  'skilled-migration': 'paths.skilled',
+  settlement: 'paths.settlement',
 }
 
 function Pathway() {
+  const { t } = useLanguage()
   const { pathId } = useParams()
-  const title = PATH_TITLES[pathId] || 'Pathway'
+  const title = useMemo(() => {
+    const key = PATH_KEYS[pathId]
+    return key ? t(key) : t('paths.pathwayFallback')
+  }, [pathId, t])
 
   return (
     <div className="sia-page sia-page--wide">
@@ -20,4 +25,3 @@ function Pathway() {
 }
 
 export default Pathway
-

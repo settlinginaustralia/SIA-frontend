@@ -43,7 +43,7 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
       className="main-profile-rail side-bg"
       aria-label={t('navbar.profile')}
     >
-      <div className="main-profile-rail__user" role="group" aria-label="Signed-in user">
+      <div className="main-profile-rail__user" role="group" aria-label={t('profile.userGroupAria')}>
         <div className="main-profile-rail__userAvatar" aria-hidden="true">
           <i className="bi bi-person-fill" />
         </div>
@@ -60,14 +60,14 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
           id="profile-plan-billing-heading"
           className="main-profile-rail__planBillingTitle"
         >
-          Plan & billing
+          {t('profile.planBilling')}
         </h3>
         <div className="main-profile-rail__planRow">
-          <span className="main-profile-rail__planLabel">Status</span>
+          <span className="main-profile-rail__planLabel">{t('profile.status')}</span>
           <span
             className={`main-profile-rail__planBadge main-profile-rail__planBadge--${tier}`}
           >
-            {isPremium ? 'Premium' : 'Free'}
+            {isPremium ? t('profile.tierPremium') : t('profile.tierFree')}
           </span>
         </div>
       </section>
@@ -78,7 +78,7 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
             className="main-profile-rail__billingBtn"
             onClick={() => closeProfile?.()}
           >
-            Manage plan & billing
+            {t('profile.managePlan')}
           </Link>
         ) : (
           <Link
@@ -86,7 +86,7 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
             className="main-profile-rail__upgradeBtn"
             onClick={() => closeProfile?.()}
           >
-            Upgrade to Premium
+            {t('profile.upgradePremium')}
           </Link>
         )}
       </div>
@@ -99,7 +99,7 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
       <div className="main-profile-rail__body">
         <nav
           className="main-profile-rail__menu"
-          aria-label="Account actions"
+          aria-label={t('profile.menuAria')}
         >
           <ul className="main-profile-rail__menuList">
           <li>
@@ -112,7 +112,7 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
                 className="bi bi-people main-profile-rail__menuIcon"
                 aria-hidden="true"
               />
-              <span>Community</span>
+              <span>{t('profile.community')}</span>
             </Link>
           </li>
           <li>
@@ -128,7 +128,7 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
                 className="bi bi-bell main-profile-rail__menuIcon"
                 aria-hidden="true"
               />
-              <span>Notifications</span>
+              <span>{t('profile.notifications')}</span>
             </button>
           </li>
           <li>
@@ -141,7 +141,7 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
                 className="bi bi-gear main-profile-rail__menuIcon"
                 aria-hidden="true"
               />
-              <span>Settings</span>
+              <span>{t('profile.settings')}</span>
             </Link>
           </li>
           <li>
@@ -154,7 +154,7 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
                 className="bi bi-question-circle main-profile-rail__menuIcon"
                 aria-hidden="true"
               />
-              <span>Help</span>
+              <span>{t('profile.help')}</span>
             </Link>
           </li>
           <li className="main-profile-rail__menuItem--logout">
@@ -167,7 +167,7 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
                 className="bi bi-box-arrow-right main-profile-rail__menuIcon"
                 aria-hidden="true"
               />
-              <span>Logout</span>
+              <span>{t('profile.logout')}</span>
             </Link>
           </li>
           </ul>

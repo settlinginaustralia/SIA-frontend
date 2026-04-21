@@ -44,7 +44,7 @@ function SidenavStartHereSection({
         onClick={() => onStartHereToggle(!startHereOpen)}
       >
         <i className="bi bi-compass sidebar-nav-item__icon" aria-hidden="true" />
-        <span className="sidebar-nav-item__label">Start Here</span>
+        <span className="sidebar-nav-item__label">{t('startHere.trigger')}</span>
         {sidebarExpanded ? (
           <i
             className="bi bi-chevron-down sidebar-starthere-section__chevron ms-auto"
@@ -54,7 +54,7 @@ function SidenavStartHereSection({
       </button>
 
       <div className="sidebar-starthere-section__panel">
-        <p className="sidebar-starthere-section__subhead">Path Selection</p>
+        <p className="sidebar-starthere-section__subhead">{t('startHere.pathSelection')}</p>
         <div className="sidebar-starthere-section__links">
           {pathSelectionLinks.map((item) => (
             <SidenavList

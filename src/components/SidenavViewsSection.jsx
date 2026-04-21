@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { useLanguage } from '../context/LanguageContext'
 import SidenavDropdown from './SidenavDropdown'
 
 function SidenavViewsSection({
@@ -10,6 +11,7 @@ function SidenavViewsSection({
   tutorialFilterGroups,
   downloadViews,
 }) {
+  const { t } = useLanguage()
   const rootRef = useRef(null)
 
   useEffect(() => {
@@ -44,7 +46,7 @@ function SidenavViewsSection({
         onClick={() => onViewsToggle(!viewsOpen)}
       >
         <i className="bi bi-layers sidebar-nav-item__icon" aria-hidden="true" />
-        <span className="sidebar-nav-item__label">Views</span>
+        <span className="sidebar-nav-item__label">{t('sidebar.views')}</span>
         {sidebarExpanded ? (
           <i
             className="bi bi-chevron-down sidebar-views-section__chevron ms-auto"
@@ -56,7 +58,7 @@ function SidenavViewsSection({
       <div className="sidebar-views-section__panel">
         <SidenavDropdown
           icon="bi bi-collection-play"
-          text="Tutorials"
+          text={t('sidebar.tutorials')}
           filterGroups={tutorialFilterGroups}
           isOpen={!!openMenus.tutorials}
           onToggle={(open) => onMenuToggle('tutorials', open)}
@@ -65,7 +67,7 @@ function SidenavViewsSection({
         />
         <SidenavDropdown
           icon="bi bi-download"
-          text="Downloads"
+          text={t('sidebar.downloads')}
           items={downloadViews}
           isOpen={!!openMenus.downloads}
           onToggle={(open) => onMenuToggle('downloads', open)}

@@ -48,20 +48,18 @@ function SignIn() {
 
   return (
     <div className="sia-page">
-      <h1 className="sia-page__title">Sign in</h1>
-      <p className="sia-page__lead">
-        Demo sign-in for now (we’ll connect real auth later).
-      </p>
+      <h1 className="sia-page__title">{t('signIn.title')}</h1>
+      <p className="sia-page__lead">{t('signIn.lead')}</p>
 
-      <section className="sia-card" aria-label="Sign in form">
+      <section className="sia-card" aria-label={t('signIn.formAria')}>
         <form onSubmit={onSubmit}>
           <div style={{ display: 'grid', gap: 12 }}>
             <label style={{ display: 'grid', gap: 6 }}>
-              <span style={{ fontWeight: 700 }}>Name</span>
+              <span style={{ fontWeight: 700 }}>{t('signIn.name')}</span>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Your name"
+                placeholder={t('signIn.namePlaceholder')}
                 style={{
                   padding: '10px 12px',
                   borderRadius: 12,
@@ -73,11 +71,11 @@ function SignIn() {
             </label>
 
             <label style={{ display: 'grid', gap: 6 }}>
-              <span style={{ fontWeight: 700 }}>Email</span>
+              <span style={{ fontWeight: 700 }}>{t('signIn.email')}</span>
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
+                placeholder={t('signIn.emailPlaceholder')}
                 type="email"
                 style={{
                   padding: '10px 12px',
@@ -97,7 +95,7 @@ function SignIn() {
               }}
             >
               <legend style={{ fontWeight: 800, padding: '0 8px' }}>
-                Plan
+                {t('signIn.planLegend')}
               </legend>
               <label style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                 <input
@@ -106,7 +104,7 @@ function SignIn() {
                   checked={plan === 'free'}
                   onChange={() => setPlan('free')}
                 />
-                <span>Free</span>
+                <span>{t('signIn.planFree')}</span>
               </label>
               <label
                 style={{
@@ -122,7 +120,7 @@ function SignIn() {
                   checked={plan === 'premium'}
                   onChange={() => setPlan('premium')}
                 />
-                <span>Premium</span>
+                <span>{t('signIn.planPremium')}</span>
               </label>
             </fieldset>
 
@@ -137,7 +135,7 @@ function SignIn() {
                 fontWeight: 800,
               }}
             >
-              Continue
+              {t('signIn.submit')}
             </button>
           </div>
         </form>
