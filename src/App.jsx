@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { AccessTierProvider } from './context/AccessTierContext'
+import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
 import LayoutM from './LayoutM'
 import MainSiteLayout from './components/MainSiteLayout'
@@ -31,29 +32,31 @@ function App() {
   return (
     <div className="sia-app-root">
       <BrowserRouter basename={routerBasename}>
-        <ThemeProvider>
-          <AccessTierProvider>
-            <Routes>
-              <Route path="/" element={<LayoutM />}>
-                <Route element={<MainSiteLayout />}>
-                  <Route index element={<Home />} />
-                  <Route path="about" element={<About />} />
-                  <Route path="membership" element={<Membership />} />
-                  <Route path="resources" element={<ResourcesBlog />} />
-                  <Route path="faq" element={<Faq />} />
-                  <Route path="contact" element={<Contact />} />
-                  <Route path="settings" element={<Settings />} />
-                  <Route path="community" element={<Community />} />
-                  <Route path="signin" element={<SignIn />} />
-                  <Route path="logout" element={<Logout />} />
-                  <Route path="tutorials" element={<Tutorials />} />
-                  <Route path="downloads" element={<Downloads />} />
-                  <Route path="path/:pathId" element={<Pathway />} />
+        <LanguageProvider>
+          <ThemeProvider>
+            <AccessTierProvider>
+              <Routes>
+                <Route path="/" element={<LayoutM />}>
+                  <Route element={<MainSiteLayout />}>
+                    <Route index element={<Home />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="membership" element={<Membership />} />
+                    <Route path="resources" element={<ResourcesBlog />} />
+                    <Route path="faq" element={<Faq />} />
+                    <Route path="contact" element={<Contact />} />
+                    <Route path="settings" element={<Settings />} />
+                    <Route path="community" element={<Community />} />
+                    <Route path="signin" element={<SignIn />} />
+                    <Route path="logout" element={<Logout />} />
+                    <Route path="tutorials" element={<Tutorials />} />
+                    <Route path="downloads" element={<Downloads />} />
+                    <Route path="path/:pathId" element={<Pathway />} />
+                  </Route>
                 </Route>
-              </Route>
-            </Routes>
-          </AccessTierProvider>
-        </ThemeProvider>
+              </Routes>
+            </AccessTierProvider>
+          </ThemeProvider>
+        </LanguageProvider>
       </BrowserRouter>
     </div>
   )

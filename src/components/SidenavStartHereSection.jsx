@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { useLanguage } from '../context/LanguageContext'
 import SidenavList from './SidenavList'
 
 function SidenavStartHereSection({
@@ -7,6 +8,7 @@ function SidenavStartHereSection({
   sidebarExpanded,
   pathSelectionLinks,
 }) {
+  const { t } = useLanguage()
   const rootRef = useRef(null)
 
   useEffect(() => {
@@ -58,7 +60,7 @@ function SidenavStartHereSection({
             <SidenavList
               key={item.href}
               icon={item.icon}
-              text={item.text}
+              text={t(item.labelKey)}
               href={item.href}
             />
           ))}

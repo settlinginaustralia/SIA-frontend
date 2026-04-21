@@ -1,0 +1,171 @@
+{
+  "nav": {
+    "home": "Start",
+    "about": "Über uns",
+    "membership": "Mitgliedschaft (Preise)",
+    "resources": "Ressourcen / Blog",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "siteSectionsAria": "Website-Bereiche",
+    "subnavScrollPrev": "Vorherige Bereiche anzeigen",
+    "subnavScrollNext": "Weitere Bereiche anzeigen"
+  },
+  "paths": {
+    "study": "Studienpfad",
+    "work": "Arbeitspfad",
+    "skilled": "Qualifizierte Migration",
+    "settlement": "Ansiedlung",
+    "pathwayFallback": "Pfad"
+  },
+  "home": {
+    "title": "In Australien ankommen – klarer erklärt",
+    "subtitle": "Klare Schritt-für-Schritt-Pfade für Studium, Arbeit, qualifizierte Migration und Ansiedlung.",
+    "pathwaysAria": "Pfade",
+    "carouselLabel": "Bilder zum Studienpfad",
+    "carouselStatus": "Bilder {{first}}–{{last}} von {{count}}"
+  },
+  "navbar": {
+    "brand": "In Australien ankommen",
+    "brandAria": "In Australien ankommen",
+    "searchPlaceholder": "Suchen…",
+    "searchAria": "Suchen",
+    "signIn": "Anmelden",
+    "profile": "Profil",
+    "openNav": "Navigationsmenü öffnen",
+    "openAppNav": "App-Navigation öffnen",
+    "openSiteMenu": "Website-Menü öffnen",
+    "closeSiteMenu": "Website-Menü schließen",
+    "siteMenuTitle": "Website-Menü",
+    "siteMenuDialogAria": "Suche und Konto",
+    "mobileSearchAccountAria": "Suche und Konto"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "lead": "Kontoeinstellungen und Website-Optionen werden hier erscheinen. Die Sprache finden Sie im Profilmenü.",
+    "language": "Sprache",
+    "languageHelp": "Wählen Sie die Oberflächensprache. Sie wird auf diesem Gerät gespeichert."
+  },
+  "pages": {
+    "aboutTitle": "Über uns",
+    "aboutLead": "Erfahren Sie mehr über „In Australien ankommen“ und wie wir Neuankömmlinge unterstützen.",
+    "membershipTitle": "Mitgliedschaft (Preise)",
+    "membershipLead": "Vergleichen Sie Pläne und wählen Sie die passende Mitgliedschaft.",
+    "resourcesTitle": "Ressourcen / Blog",
+    "resourcesLead": "Leitfäden, Artikel und Updates für Ihre Ansiedlung in Australien.",
+    "faqTitle": "FAQ",
+    "faqLead": "Antworten auf häufige Fragen zur Plattform und Mitgliedschaft.",
+    "contactTitle": "Kontakt",
+    "contactLead": "Schreiben Sie uns bei Fragen, Feedback oder Partnerschaftsideen.",
+    "communityTitle": "Community",
+    "communityLead": "Vernetzen Sie sich mit anderen, die sich in Australien niederlassen. Mehr Inhalte folgen."
+  },
+  "signIn": {
+    "title": "Anmelden",
+    "lead": "Demo-Anmeldung vorerst (echte Authentifizierung folgt später).",
+    "formAria": "Anmeldeformular",
+    "name": "Name",
+    "email": "E-Mail",
+    "namePlaceholder": "Ihr Name",
+    "emailPlaceholder": "sie@beispiel.de",
+    "planLegend": "Tarif",
+    "planFree": "Kostenlos",
+    "planPremium": "Premium",
+    "submit": "Weiter"
+  },
+  "tutorials": {
+    "title": "Tutorials",
+    "lockTitle": "Premium-Tutorial",
+    "lockBody": "Diese Tutorial-Kategorie ist für Premium-Mitglieder. Upgraden Sie, um sie freizuschalten.",
+    "viewPricing": "Mitgliedschaftspreise ansehen",
+    "browseAria": "Tutorial-Kategorien durchsuchen",
+    "browseTitle": "Durchsuchen",
+    "groupFree": "Kostenlose Tutorials",
+    "groupPremium": "Premium-Tutorials",
+    "sidebarTierFree": "Kostenlos",
+    "sidebarTierPremium": "Premium",
+    "views": {
+      "overview": "Überblick",
+      "guides": "Leitfäden",
+      "videos": "Videos",
+      "deepDives": "Deep Dives",
+      "expert": "Expertensessions",
+      "library": "Gesamtbibliothek",
+      "course": "Kurs"
+    }
+  },
+  "downloads": {
+    "title": "Downloads",
+    "listAria": "Download-Liste",
+    "cardBody": "Diese Seite ist mit der Seitenleiste verknüpft. Später können wir echte Download-Daten laden.",
+    "views": {
+      "all": "Alle Dateien",
+      "recent": "Zuletzt",
+      "starred": "Markiert"
+    }
+  },
+  "profile": {
+    "userGroupAria": "Angemeldeter Benutzer",
+    "planBilling": "Tarif & Abrechnung",
+    "status": "Status",
+    "tierPremium": "Premium",
+    "tierFree": "Kostenlos",
+    "managePlan": "Tarif & Abrechnung verwalten",
+    "upgradePremium": "Auf Premium upgraden",
+    "menuAria": "Kontoaktionen",
+    "community": "Community",
+    "notifications": "Benachrichtigungen",
+    "settings": "Einstellungen",
+    "help": "Hilfe",
+    "logout": "Abmelden"
+  },
+  "notifications": {
+    "aria": "Benachrichtigungen",
+    "title": "Benachrichtigungen",
+    "collapseWide": "Benachrichtigungsbereich einklappen",
+    "collapseNarrow": "Benachrichtigungsbereich ausklappen",
+    "close": "Benachrichtigungen schließen",
+    "tablistAria": "Benachrichtigungsansichten",
+    "tabWhatsNew": "Neuigkeiten",
+    "tabInbox": "Posteingang",
+    "emptyInboxTitle": "Posteingang ist leer",
+    "emptyInboxBody": "Nachrichten und direkte Benachrichtigungen erscheinen hier.",
+    "emptyGeneralTitle": "Noch keine Benachrichtigungen",
+    "emptyGeneralBody": "Bald finden Sie hier hilfreiche Infos. Bleiben Sie dran!"
+  },
+  "sidebar": {
+    "toggleCloseMobile": "Menü schließen",
+    "toggleCollapse": "Seitenleiste einklappen",
+    "toggleExpand": "Seitenleiste ausklappen",
+    "mainNavAria": "Haupt",
+    "home": "Start",
+    "views": "Ansichten",
+    "tutorials": "Tutorials",
+    "downloads": "Downloads",
+    "startHereGateTitle": "Mitgliedschaftspreise ansehen, um „Start hier“-Pfade freizuschalten",
+    "startHere": "Start hier",
+    "startHereHint": "Mitgliedschaftspreise ansehen, um Pfadauswahl und geführte Pfade freizuschalten.",
+    "footerAria": "Seitenleisten-Tools",
+    "settingsAria": "Einstellungen",
+    "settingsTitle": "Einstellungen",
+    "helpAria": "Hilfe",
+    "helpTitle": "Hilfe",
+    "themeAria": "Design: Hell, Dunkel oder System",
+    "themeTitle": "Design",
+    "themeLight": "Hell",
+    "themeDark": "Dunkel",
+    "themeSystem": "System",
+    "notificationsAria": "Benachrichtigungen",
+    "notificationsTitle": "Benachrichtigungen"
+  },
+  "startHere": {
+    "trigger": "Start hier",
+    "pathSelection": "Pfadauswahl"
+  },
+  "meta": {
+    "languageName_en": "English",
+    "languageName_es": "Español",
+    "languageName_fr": "Français",
+    "languageName_de": "Deutsch",
+    "languageName_zh": "中文（简体）"
+  }
+}

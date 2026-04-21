@@ -7,6 +7,7 @@ import React, {
   useState,
 } from 'react'
 import '../styles/StudyPathPictureCarousel.css'
+import { useLanguage } from '../context/LanguageContext'
 
 function prefersReducedMotion() {
   if (typeof window === 'undefined' || !window.matchMedia) return false
@@ -17,7 +18,10 @@ function clamp(n, min, max) {
   return Math.max(min, Math.min(max, n))
 }
 
-function StudyPathPictureCarousel({ slides, label = 'Study pathway pictures' }) {
+function StudyPathPictureCarousel({ slides, label }) {
+  const { t } = useLanguage()
+  const resolvedLabel = label ?? t('home.carouselLabel')
+
   const safeSlides = useMemo(
     () => (Array.isArray(slides) ? slides.filter((s) => s && s.imageSrc) : []),
     [slides]
@@ -226,7 +230,7 @@ function StudyPathPictureCarousel({ slides, label = 'Study pathway pictures' }) 
     <section
       className="sia-studyPix"
       aria-roledescription="carousel"
-      aria-label={label}
+      aria-label={resolvedLabel}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -235,7 +239,7 @@ function StudyPathPictureCarousel({ slides, label = 'Study pathway pictures' }) 
       }}
     >
       <p className="sia-studyPix__status" aria-live="polite">
-        Showing pictures {first}–{last} of {count}
+        {t('home.carouselStatus', { first, last, count })}
       </p>
 
       <div className="sia-studyPix__frame">

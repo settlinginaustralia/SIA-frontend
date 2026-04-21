@@ -1,6 +1,8 @@
 import React, { forwardRef, useMemo } from 'react'
 import { Link, useOutletContext } from 'react-router-dom'
 import { useAccessTier } from '../context/AccessTierContext'
+import { useLanguage } from '../context/LanguageContext'
+import LanguageSwitcher from './LanguageSwitcher'
 import '../styles/ProfilePanel.css'
 
 const USER_KEY = 'sia.user'
@@ -26,6 +28,7 @@ const defaultUser = {
 }
 
 const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
+  const { t } = useLanguage()
   const { tier } = useAccessTier()
   const { closeProfile, openNotifications } = useOutletContext() ?? {}
   const isPremium = tier === 'premium'
@@ -38,7 +41,7 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
     <aside
       ref={ref}
       className="main-profile-rail side-bg"
-      aria-label="Profile"
+      aria-label={t('navbar.profile')}
     >
       <div className="main-profile-rail__user" role="group" aria-label="Signed-in user">
         <div className="main-profile-rail__userAvatar" aria-hidden="true">
@@ -87,6 +90,12 @@ const ProfilePanel = forwardRef(function ProfilePanel({ user }, ref) {
           </Link>
         )}
       </div>
+      <section
+        className="main-profile-rail__language"
+        aria-label={t('settings.language')}
+      >
+        <LanguageSwitcher className="sia-langSwitch--inProfile" showHelp={false} />
+      </section>
       <div className="main-profile-rail__body">
         <nav
           className="main-profile-rail__menu"

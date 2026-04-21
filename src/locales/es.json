@@ -1,0 +1,171 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "membership": "Membresía (precios)",
+    "resources": "Recursos / Blog",
+    "faq": "Preguntas frecuentes",
+    "contact": "Contacto",
+    "siteSectionsAria": "Secciones del sitio",
+    "subnavScrollPrev": "Ver secciones anteriores",
+    "subnavScrollNext": "Ver más secciones"
+  },
+  "paths": {
+    "study": "Vía de estudio",
+    "work": "Vía laboral",
+    "skilled": "Migración calificada",
+    "settlement": "Establecimiento",
+    "pathwayFallback": "Vía"
+  },
+  "home": {
+    "title": "Establecerse en Australia, con más claridad",
+    "subtitle": "Vías claras, paso a paso, para estudiar, trabajar, migración calificada y establecimiento.",
+    "pathwaysAria": "Vías",
+    "carouselLabel": "Imágenes de la vía de estudio",
+    "carouselStatus": "Mostrando imágenes {{first}}–{{last}} de {{count}}"
+  },
+  "navbar": {
+    "brand": "Establecerse en Australia",
+    "brandAria": "Establecerse en Australia",
+    "searchPlaceholder": "Buscar…",
+    "searchAria": "Buscar",
+    "signIn": "Iniciar sesión",
+    "profile": "Perfil",
+    "openNav": "Abrir menú de navegación",
+    "openAppNav": "Abrir navegación de la app",
+    "openSiteMenu": "Abrir menú del sitio",
+    "closeSiteMenu": "Cerrar menú del sitio",
+    "siteMenuTitle": "Menú del sitio",
+    "siteMenuDialogAria": "Búsqueda y cuenta",
+    "mobileSearchAccountAria": "Búsqueda y cuenta"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "lead": "Las preferencias de la cuenta y las opciones del sitio estarán aquí. El idioma está en el menú de perfil.",
+    "language": "Idioma",
+    "languageHelp": "Elige el idioma de la interfaz. Se guarda en este dispositivo."
+  },
+  "pages": {
+    "aboutTitle": "Acerca de",
+    "aboutLead": "Conoce más sobre Establecerse en Australia y cómo ayudamos a quienes llegan.",
+    "membershipTitle": "Membresía (precios)",
+    "membershipLead": "Compara planes y elige la membresía que mejor encaje en tu camino.",
+    "resourcesTitle": "Recursos / Blog",
+    "resourcesLead": "Guías, artículos y novedades para apoyar tu establecimiento en Australia.",
+    "faqTitle": "Preguntas frecuentes",
+    "faqLead": "Respuestas a preguntas frecuentes sobre la plataforma y la membresía.",
+    "contactTitle": "Contacto",
+    "contactLead": "Escríbenos con dudas, comentarios o ideas de colaboración.",
+    "communityTitle": "Comunidad",
+    "communityLead": "Conecta con otras personas que se establecen en Australia. Pronto habrá más contenido."
+  },
+  "signIn": {
+    "title": "Iniciar sesión",
+    "lead": "Inicio de sesión de demostración por ahora (conectaremos autenticación real más adelante).",
+    "formAria": "Formulario de inicio de sesión",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "tu@ejemplo.com",
+    "planLegend": "Plan",
+    "planFree": "Gratis",
+    "planPremium": "Premium",
+    "submit": "Continuar"
+  },
+  "tutorials": {
+    "title": "Tutoriales",
+    "lockTitle": "Tutorial Premium",
+    "lockBody": "Esta categoría de tutoriales es para miembros Premium. Mejora tu plan para desbloquearla.",
+    "viewPricing": "Ver precios de membresía",
+    "browseAria": "Explorar categorías de tutoriales",
+    "browseTitle": "Explorar",
+    "groupFree": "Tutoriales gratuitos",
+    "groupPremium": "Tutoriales Premium",
+    "sidebarTierFree": "Gratis",
+    "sidebarTierPremium": "Premium",
+    "views": {
+      "overview": "Resumen",
+      "guides": "Guías",
+      "videos": "Videos",
+      "deepDives": "Profundizaciones",
+      "expert": "Sesiones con expertos",
+      "library": "Biblioteca completa",
+      "course": "Curso"
+    }
+  },
+  "downloads": {
+    "title": "Descargas",
+    "listAria": "Lista de descargas",
+    "cardBody": "Esta página está conectada al menú lateral. Luego podemos cargar datos reales de descargas aquí.",
+    "views": {
+      "all": "Todos los archivos",
+      "recent": "Recientes",
+      "starred": "Destacados"
+    }
+  },
+  "profile": {
+    "userGroupAria": "Usuario con sesión iniciada",
+    "planBilling": "Plan y facturación",
+    "status": "Estado",
+    "tierPremium": "Premium",
+    "tierFree": "Gratis",
+    "managePlan": "Gestionar plan y facturación",
+    "upgradePremium": "Mejorar a Premium",
+    "menuAria": "Acciones de la cuenta",
+    "community": "Comunidad",
+    "notifications": "Notificaciones",
+    "settings": "Ajustes",
+    "help": "Ayuda",
+    "logout": "Cerrar sesión"
+  },
+  "notifications": {
+    "aria": "Notificaciones",
+    "title": "Notificaciones",
+    "collapseWide": "Contraer panel de notificaciones",
+    "collapseNarrow": "Expandir panel de notificaciones",
+    "close": "Cerrar notificaciones",
+    "tablistAria": "Vistas de notificaciones",
+    "tabWhatsNew": "Novedades",
+    "tabInbox": "Bandeja de entrada",
+    "emptyInboxTitle": "La bandeja está vacía",
+    "emptyInboxBody": "Los mensajes y notificaciones directas aparecerán aquí.",
+    "emptyGeneralTitle": "Aún no hay notificaciones",
+    "emptyGeneralBody": "Pronto verás información útil aquí. ¡Permanece atento!"
+  },
+  "sidebar": {
+    "toggleCloseMobile": "Cerrar menú",
+    "toggleCollapse": "Contraer barra lateral",
+    "toggleExpand": "Expandir barra lateral",
+    "mainNavAria": "Principal",
+    "home": "Inicio",
+    "views": "Vistas",
+    "tutorials": "Tutoriales",
+    "downloads": "Descargas",
+    "startHereGateTitle": "Ver precios de membresía para desbloquear las vías de Inicio",
+    "startHere": "Inicio",
+    "startHereHint": "Ver precios de membresía para desbloquear la selección de vías y las rutas guiadas.",
+    "footerAria": "Herramientas de la barra lateral",
+    "settingsAria": "Ajustes",
+    "settingsTitle": "Ajustes",
+    "helpAria": "Ayuda",
+    "helpTitle": "Ayuda",
+    "themeAria": "Tema: claro, oscuro o del sistema",
+    "themeTitle": "Tema",
+    "themeLight": "Claro",
+    "themeDark": "Oscuro",
+    "themeSystem": "Sistema",
+    "notificationsAria": "Notificaciones",
+    "notificationsTitle": "Notificaciones"
+  },
+  "startHere": {
+    "trigger": "Inicio",
+    "pathSelection": "Selección de vía"
+  },
+  "meta": {
+    "languageName_en": "English",
+    "languageName_es": "Español",
+    "languageName_fr": "Français",
+    "languageName_de": "Deutsch",
+    "languageName_zh": "中文（简体）"
+  }
+}

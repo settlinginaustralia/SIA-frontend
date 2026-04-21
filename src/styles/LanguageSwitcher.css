@@ -1,0 +1,31 @@
+.sia-langSwitch {
+  max-width: 28rem;
+  margin-top: 1.25rem;
+}
+
+.sia-langSwitch__label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--sia-text);
+}
+
+.sia-langSwitch__select {
+  max-width: 16rem;
+  border-radius: 10px;
+  border-color: var(--sia-accent-border-soft);
+  background-color: var(--sia-panel);
+  color: var(--sia-text);
+}
+
+.sia-langSwitch__help {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--sia-text-muted);
+}
+
+:root[data-theme='light'] .sia-langSwitch__select {
+  background-color: #fff;
+}

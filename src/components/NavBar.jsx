@@ -7,6 +7,7 @@ import React, {
 } from 'react'
 import '../styles/NavBar.css'
 import { Link, useOutletContext } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
 
 function readIsMobile() {
   if (typeof window === 'undefined') return false
@@ -14,6 +15,7 @@ function readIsMobile() {
 }
 
 function NavBar() {
+  const { t } = useLanguage()
   const {
     profileOpen,
     toggleProfile,
@@ -79,7 +81,7 @@ function NavBar() {
       <button
         type="button"
         className="sia-navbar__siteMenuBackdrop"
-        aria-label="Close site menu"
+        aria-label={t('navbar.closeSiteMenu')}
         tabIndex={-1}
         onClick={() => setSiteMenuOpen(false)}
       />
@@ -92,15 +94,17 @@ function NavBar() {
         }}
         role="dialog"
         aria-modal="true"
-        aria-label="Search and account"
+        aria-label={t('navbar.siteMenuDialogAria')}
       >
         <div className="sia-navbar__siteMenuHeader">
-          <span className="sia-navbar__siteMenuTitle">Site menu</span>
+          <span className="sia-navbar__siteMenuTitle">
+            {t('navbar.siteMenuTitle')}
+          </span>
           <button
             type="button"
             className="sia-navbar__siteMenuClose"
             onClick={() => setSiteMenuOpen(false)}
-            aria-label="Close site menu"
+            aria-label={t('navbar.closeSiteMenu')}
           >
             <i className="bi bi-x-lg" aria-hidden="true" />
           </button>
@@ -111,8 +115,8 @@ function NavBar() {
             <input
               className="sia-navbar__searchInput"
               type="search"
-              placeholder="Search..."
-              aria-label="Search"
+              placeholder={t('navbar.searchPlaceholder')}
+              aria-label={t('navbar.searchAria')}
             />
           </div>
           <div className="sia-navbar__siteMenuActions">
@@ -124,12 +128,14 @@ function NavBar() {
                 toggleProfile?.()
                 setSiteMenuOpen(false)
               }}
-              aria-label="Profile"
+              aria-label={t('navbar.profile')}
               aria-pressed={profileOpen ? 'true' : 'false'}
-              title="Profile"
+              title={t('navbar.profile')}
             >
               <i className="bi bi-person-circle" aria-hidden="true" />
-              <span className="sia-navbar__siteMenuActionLabel">Profile</span>
+              <span className="sia-navbar__siteMenuActionLabel">
+                {t('navbar.profile')}
+              </span>
             </button>
             <Link
               className="sia-navbar__signin sia-navbar__signin--menu"
@@ -137,7 +143,7 @@ function NavBar() {
               onClick={() => setSiteMenuOpen(false)}
             >
               <i className="bi bi-box-arrow-in-right" aria-hidden="true" />
-              Sign in
+              {t('navbar.signIn')}
             </Link>
           </div>
         </div>
@@ -153,7 +159,7 @@ function NavBar() {
             type="button"
             className="sia-navbar__menuBtn sia-navbar__menuBtn--sidebar"
             onClick={() => openMobileNav?.()}
-            aria-label="Open app navigation"
+            aria-label={t('navbar.openAppNav')}
             aria-expanded={mobileNavOpen ? 'true' : 'false'}
             aria-controls="sia-app-sidebar"
           >
@@ -161,15 +167,15 @@ function NavBar() {
           </button>
           <div
             className="sia-navbar__brand sia-navbar__brand--mobileCenter"
-            aria-label="Settling In Australia"
+            aria-label={t('navbar.brandAria')}
           >
-            Settling In Australia
+            {t('navbar.brand')}
           </div>
           <button
             type="button"
             className={`sia-navbar__siteMenuBtn${siteMenuOpen ? ' sia-navbar__siteMenuBtn--open' : ''}`}
             onClick={() => setSiteMenuOpen((o) => !o)}
-            aria-label="Open site menu"
+            aria-label={t('navbar.openSiteMenu')}
             aria-expanded={siteMenuOpen ? 'true' : 'false'}
             aria-controls="sia-navbar-site-menu"
           >
@@ -188,14 +194,14 @@ function NavBar() {
           type="button"
           className="sia-navbar__menuBtn sia-navbar__menuBtn--sidebar"
           onClick={() => openMobileNav?.()}
-          aria-label="Open navigation menu"
+          aria-label={t('navbar.openNav')}
           aria-expanded={mobileNavOpen ? 'true' : 'false'}
           aria-controls="sia-app-sidebar"
         >
           <i className="bi bi-list" aria-hidden="true" />
         </button>
-        <div className="sia-navbar__brand" aria-label="Settling In Australia">
-          Settling In Australia
+        <div className="sia-navbar__brand" aria-label={t('navbar.brandAria')}>
+          {t('navbar.brand')}
         </div>
       </div>
 
@@ -205,8 +211,8 @@ function NavBar() {
           <input
             className="sia-navbar__searchInput"
             type="search"
-            placeholder="Search..."
-            aria-label="Search"
+            placeholder={t('navbar.searchPlaceholder')}
+            aria-label={t('navbar.searchAria')}
           />
         </div>
       </div>
@@ -217,15 +223,15 @@ function NavBar() {
           className={`sia-navbar__profile${profileOpen ? ' sia-navbar__profile--open' : ''}`}
           data-profile-trigger
           onClick={() => toggleProfile?.()}
-          aria-label="Profile"
+          aria-label={t('navbar.profile')}
           aria-pressed={profileOpen ? 'true' : 'false'}
-          title="Profile"
+          title={t('navbar.profile')}
         >
           <i className="bi bi-person-circle" aria-hidden="true" />
         </button>
         <Link className="sia-navbar__signin" to="/signin">
           <i className="bi bi-box-arrow-in-right" aria-hidden="true" />
-          Sign in
+          {t('navbar.signIn')}
         </Link>
       </div>
     </header>

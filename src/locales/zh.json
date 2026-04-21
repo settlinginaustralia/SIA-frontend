@@ -1,0 +1,171 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于",
+    "membership": "会员（价格）",
+    "resources": "资源 / 博客",
+    "faq": "常见问题",
+    "contact": "联系我们",
+    "siteSectionsAria": "网站栏目",
+    "subnavScrollPrev": "显示上一栏目",
+    "subnavScrollNext": "显示更多栏目"
+  },
+  "paths": {
+    "study": "留学路径",
+    "work": "工作路径",
+    "skilled": "技术移民",
+    "settlement": "定居",
+    "pathwayFallback": "路径"
+  },
+  "home": {
+    "title": "在澳大利亚安家，更清晰",
+    "subtitle": "清晰分步路径，涵盖留学、工作、技术移民与定居。",
+    "pathwaysAria": "路径",
+    "carouselLabel": "留学路径图片",
+    "carouselStatus": "正在显示第 {{first}}–{{last}} 张，共 {{count}} 张"
+  },
+  "navbar": {
+    "brand": "在澳大利亚安家",
+    "brandAria": "在澳大利亚安家",
+    "searchPlaceholder": "搜索…",
+    "searchAria": "搜索",
+    "signIn": "登录",
+    "profile": "个人资料",
+    "openNav": "打开导航菜单",
+    "openAppNav": "打开应用导航",
+    "openSiteMenu": "打开网站菜单",
+    "closeSiteMenu": "关闭网站菜单",
+    "siteMenuTitle": "网站菜单",
+    "siteMenuDialogAria": "搜索与账户",
+    "mobileSearchAccountAria": "搜索与账户"
+  },
+  "settings": {
+    "title": "设置",
+    "lead": "账户偏好与网站选项将放在此处。语言请在个人资料菜单中更改。",
+    "language": "语言",
+    "languageHelp": "选择界面语言，将保存在本设备。"
+  },
+  "pages": {
+    "aboutTitle": "关于",
+    "aboutLead": "了解「在澳大利亚安家」以及我们如何帮助新来者。",
+    "membershipTitle": "会员（价格）",
+    "membershipLead": "比较方案，选择适合您旅程的会员。",
+    "resourcesTitle": "资源 / 博客",
+    "resourcesLead": "指南、文章与更新，助力在澳安家。",
+    "faqTitle": "常见问题",
+    "faqLead": "关于平台与会员的常见问题解答。",
+    "contactTitle": "联系我们",
+    "contactLead": "欢迎咨询、反馈或合作意向。",
+    "communityTitle": "社区",
+    "communityLead": "与其他在澳安家的人交流，更多内容即将推出。"
+  },
+  "signIn": {
+    "title": "登录",
+    "lead": "当前为演示登录（后续将接入真实身份验证）。",
+    "formAria": "登录表单",
+    "name": "姓名",
+    "email": "电子邮箱",
+    "namePlaceholder": "您的姓名",
+    "emailPlaceholder": "you@example.com",
+    "planLegend": "方案",
+    "planFree": "免费",
+    "planPremium": "高级版",
+    "submit": "继续"
+  },
+  "tutorials": {
+    "title": "教程",
+    "lockTitle": "高级版教程",
+    "lockBody": "该教程类别仅供高级会员使用。升级即可解锁。",
+    "viewPricing": "查看会员价格",
+    "browseAria": "浏览教程分类",
+    "browseTitle": "浏览",
+    "groupFree": "免费教程",
+    "groupPremium": "高级版教程",
+    "sidebarTierFree": "免费",
+    "sidebarTierPremium": "高级版",
+    "views": {
+      "overview": "概览",
+      "guides": "指南",
+      "videos": "视频",
+      "deepDives": "深度内容",
+      "expert": "专家课程",
+      "library": "完整资料库",
+      "course": "课程"
+    }
+  },
+  "downloads": {
+    "title": "下载",
+    "listAria": "下载列表",
+    "cardBody": "此页面与侧边栏联动。后续可在此加载真实下载数据。",
+    "views": {
+      "all": "全部文件",
+      "recent": "最近",
+      "starred": "已标星"
+    }
+  },
+  "profile": {
+    "userGroupAria": "已登录用户",
+    "planBilling": "方案与账单",
+    "status": "状态",
+    "tierPremium": "高级版",
+    "tierFree": "免费",
+    "managePlan": "管理方案与账单",
+    "upgradePremium": "升级到高级版",
+    "menuAria": "账户操作",
+    "community": "社区",
+    "notifications": "通知",
+    "settings": "设置",
+    "help": "帮助",
+    "logout": "退出登录"
+  },
+  "notifications": {
+    "aria": "通知",
+    "title": "通知",
+    "collapseWide": "收起通知面板",
+    "collapseNarrow": "展开通知面板",
+    "close": "关闭通知",
+    "tablistAria": "通知视图",
+    "tabWhatsNew": "最新动态",
+    "tabInbox": "收件箱",
+    "emptyInboxTitle": "收件箱为空",
+    "emptyInboxBody": "消息与直接通知将显示在此。",
+    "emptyGeneralTitle": "暂无通知",
+    "emptyGeneralBody": "很快会有实用信息。敬请期待！"
+  },
+  "sidebar": {
+    "toggleCloseMobile": "关闭菜单",
+    "toggleCollapse": "收起侧边栏",
+    "toggleExpand": "展开侧边栏",
+    "mainNavAria": "主导航",
+    "home": "首页",
+    "views": "视图",
+    "tutorials": "教程",
+    "downloads": "下载",
+    "startHereGateTitle": "查看会员价格以解锁「从这里开始」路径",
+    "startHere": "从这里开始",
+    "startHereHint": "查看会员价格以解锁路径选择与引导路径。",
+    "footerAria": "侧边栏工具",
+    "settingsAria": "设置",
+    "settingsTitle": "设置",
+    "helpAria": "帮助",
+    "helpTitle": "帮助",
+    "themeAria": "主题：浅色、深色或跟随系统",
+    "themeTitle": "主题",
+    "themeLight": "浅色",
+    "themeDark": "深色",
+    "themeSystem": "系统",
+    "notificationsAria": "通知",
+    "notificationsTitle": "通知"
+  },
+  "startHere": {
+    "trigger": "从这里开始",
+    "pathSelection": "路径选择"
+  },
+  "meta": {
+    "languageName_en": "English",
+    "languageName_es": "Español",
+    "languageName_fr": "Français",
+    "languageName_de": "Deutsch",
+    "languageName_zh": "中文（简体）"
+  }
+}

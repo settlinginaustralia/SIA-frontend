@@ -1,0 +1,171 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "membership": "Abonnement (tarifs)",
+    "resources": "Ressources / Blog",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "siteSectionsAria": "Sections du site",
+    "subnavScrollPrev": "Afficher les sections précédentes",
+    "subnavScrollNext": "Afficher plus de sections"
+  },
+  "paths": {
+    "study": "Parcours études",
+    "work": "Parcours travail",
+    "skilled": "Migration qualifiée",
+    "settlement": "Installation",
+    "pathwayFallback": "Parcours"
+  },
+  "home": {
+    "title": "S’installer en Australie, plus clairement",
+    "subtitle": "Des parcours clairs, étape par étape, pour étudier, travailler, la migration qualifiée et l’installation.",
+    "pathwaysAria": "Parcours",
+    "carouselLabel": "Images du parcours études",
+    "carouselStatus": "Images {{first}}–{{last}} sur {{count}}"
+  },
+  "navbar": {
+    "brand": "S’installer en Australie",
+    "brandAria": "S’installer en Australie",
+    "searchPlaceholder": "Rechercher…",
+    "searchAria": "Rechercher",
+    "signIn": "Connexion",
+    "profile": "Profil",
+    "openNav": "Ouvrir le menu de navigation",
+    "openAppNav": "Ouvrir la navigation de l’application",
+    "openSiteMenu": "Ouvrir le menu du site",
+    "closeSiteMenu": "Fermer le menu du site",
+    "siteMenuTitle": "Menu du site",
+    "siteMenuDialogAria": "Recherche et compte",
+    "mobileSearchAccountAria": "Recherche et compte"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "lead": "Les préférences du compte et les options du site seront ici. La langue se règle dans le menu profil.",
+    "language": "Langue",
+    "languageHelp": "Choisissez la langue de l’interface. Elle est enregistrée sur cet appareil."
+  },
+  "pages": {
+    "aboutTitle": "À propos",
+    "aboutLead": "En savoir plus sur S’installer en Australie et comment nous aidons les nouveaux arrivants.",
+    "membershipTitle": "Abonnement (tarifs)",
+    "membershipLead": "Comparez les formules et choisissez l’abonnement adapté à votre parcours.",
+    "resourcesTitle": "Ressources / Blog",
+    "resourcesLead": "Guides, articles et actualités pour vous accompagner en Australie.",
+    "faqTitle": "FAQ",
+    "faqLead": "Réponses aux questions fréquentes sur la plateforme et l’abonnement.",
+    "contactTitle": "Contact",
+    "contactLead": "Écrivez-nous pour des questions, des retours ou des idées de partenariat.",
+    "communityTitle": "Communauté",
+    "communityLead": "Échangez avec d’autres personnes qui s’installent en Australie. Plus de contenu bientôt."
+  },
+  "signIn": {
+    "title": "Connexion",
+    "lead": "Connexion de démonstration pour l’instant (nous brancherons une authentification réelle plus tard).",
+    "formAria": "Formulaire de connexion",
+    "name": "Nom",
+    "email": "E-mail",
+    "namePlaceholder": "Votre nom",
+    "emailPlaceholder": "vous@exemple.com",
+    "planLegend": "Formule",
+    "planFree": "Gratuit",
+    "planPremium": "Premium",
+    "submit": "Continuer"
+  },
+  "tutorials": {
+    "title": "Tutoriels",
+    "lockTitle": "Tutoriel Premium",
+    "lockBody": "Cette catégorie de tutoriels est réservée aux membres Premium. Passez à Premium pour la débloquer.",
+    "viewPricing": "Voir les tarifs d’abonnement",
+    "browseAria": "Parcourir les catégories de tutoriels",
+    "browseTitle": "Parcourir",
+    "groupFree": "Tutoriels gratuits",
+    "groupPremium": "Tutoriels Premium",
+    "sidebarTierFree": "Gratuit",
+    "sidebarTierPremium": "Premium",
+    "views": {
+      "overview": "Aperçu",
+      "guides": "Guides",
+      "videos": "Vidéos",
+      "deepDives": "Approfondissements",
+      "expert": "Sessions expertes",
+      "library": "Bibliothèque complète",
+      "course": "Cours"
+    }
+  },
+  "downloads": {
+    "title": "Téléchargements",
+    "listAria": "Liste des téléchargements",
+    "cardBody": "Cette page est liée à la barre latérale. Nous pourrons ensuite charger de vraies données ici.",
+    "views": {
+      "all": "Tous les fichiers",
+      "recent": "Récents",
+      "starred": "Favoris"
+    }
+  },
+  "profile": {
+    "userGroupAria": "Utilisateur connecté",
+    "planBilling": "Formule et facturation",
+    "status": "Statut",
+    "tierPremium": "Premium",
+    "tierFree": "Gratuit",
+    "managePlan": "Gérer la formule et la facturation",
+    "upgradePremium": "Passer à Premium",
+    "menuAria": "Actions du compte",
+    "community": "Communauté",
+    "notifications": "Notifications",
+    "settings": "Paramètres",
+    "help": "Aide",
+    "logout": "Déconnexion"
+  },
+  "notifications": {
+    "aria": "Notifications",
+    "title": "Notifications",
+    "collapseWide": "Réduire le panneau de notifications",
+    "collapseNarrow": "Agrandir le panneau de notifications",
+    "close": "Fermer les notifications",
+    "tablistAria": "Vues des notifications",
+    "tabWhatsNew": "Nouveautés",
+    "tabInbox": "Boîte de réception",
+    "emptyInboxTitle": "La boîte de réception est vide",
+    "emptyInboxBody": "Les messages et notifications directes apparaîtront ici.",
+    "emptyGeneralTitle": "Aucune notification pour le moment",
+    "emptyGeneralBody": "Vous verrez bientôt des informations utiles ici. Restez à l’écoute !"
+  },
+  "sidebar": {
+    "toggleCloseMobile": "Fermer le menu",
+    "toggleCollapse": "Réduire la barre latérale",
+    "toggleExpand": "Développer la barre latérale",
+    "mainNavAria": "Principal",
+    "home": "Accueil",
+    "views": "Vues",
+    "tutorials": "Tutoriels",
+    "downloads": "Téléchargements",
+    "startHereGateTitle": "Voir les tarifs d’abonnement pour débloquer les parcours « Par ici »",
+    "startHere": "Par ici",
+    "startHereHint": "Voir les tarifs d’abonnement pour débloquer le choix de parcours et les parcours guidés.",
+    "footerAria": "Outils de la barre latérale",
+    "settingsAria": "Paramètres",
+    "settingsTitle": "Paramètres",
+    "helpAria": "Aide",
+    "helpTitle": "Aide",
+    "themeAria": "Thème : clair, sombre ou système",
+    "themeTitle": "Thème",
+    "themeLight": "Clair",
+    "themeDark": "Sombre",
+    "themeSystem": "Système",
+    "notificationsAria": "Notifications",
+    "notificationsTitle": "Notifications"
+  },
+  "startHere": {
+    "trigger": "Par ici",
+    "pathSelection": "Choix de parcours"
+  },
+  "meta": {
+    "languageName_en": "English",
+    "languageName_es": "Español",
+    "languageName_fr": "Français",
+    "languageName_de": "Deutsch",
+    "languageName_zh": "中文（简体）"
+  }
+}

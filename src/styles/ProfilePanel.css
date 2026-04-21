@@ -200,6 +200,22 @@
   outline-offset: 2px;
 }
 
+.main-profile-rail__language {
+  flex-shrink: 0;
+  padding: 0 12px 12px;
+  border-bottom: 1px solid var(--sia-accent-border-soft);
+}
+
+.main-profile-rail__language .sia-langSwitch {
+  margin-top: 0;
+  max-width: none;
+}
+
+.main-profile-rail__language .sia-langSwitch__select {
+  max-width: none;
+  width: 100%;
+}
+
 .main-profile-rail__body {
   flex: 1 1 auto;
   min-height: 0;

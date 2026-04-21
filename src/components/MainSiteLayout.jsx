@@ -8,19 +8,21 @@ import React, {
 import '../styles/MainSiteLayout.css'
 import '../styles/SiaCard.css'
 import { NavLink, Outlet, useOutletContext } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
 import NavBar from './NavBar'
 import ProfilePanel from './ProfilePanel'
 
-const mainNavLinks = [
-  { label: 'Home', to: '/', icon: 'bi-house' },
-  { label: 'About', to: '/about', icon: 'bi-info-circle' },
-  { label: 'Membership (Pricing)', to: '/membership', icon: 'bi-credit-card' },
-  { label: 'Resources / Blog', to: '/resources', icon: 'bi-journal-text' },
-  { label: 'FAQ', to: '/faq', icon: 'bi-question-circle' },
-  { label: 'Contact', to: '/contact', icon: 'bi-envelope' },
+const mainNavLinkDefs = [
+  { labelKey: 'nav.home', to: '/', icon: 'bi-house' },
+  { labelKey: 'nav.about', to: '/about', icon: 'bi-info-circle' },
+  { labelKey: 'nav.membership', to: '/membership', icon: 'bi-credit-card' },
+  { labelKey: 'nav.resources', to: '/resources', icon: 'bi-journal-text' },
+  { labelKey: 'nav.faq', to: '/faq', icon: 'bi-question-circle' },
+  { labelKey: 'nav.contact', to: '/contact', icon: 'bi-envelope' },
 ]
 
 function MainSiteLayout() {
+  const { t } = useLanguage()
   const { profileOpen, closeProfile, closeMobileNav } =
     useOutletContext() ?? {}
   const navbarRowRef = useRef(null)
@@ -126,9 +128,9 @@ function MainSiteLayout() {
               className={`sia-home__subnav${
                 subnavScrollHint.left ? ' sia-home__subnav--padStart' : ''
               }${subnavScrollHint.right ? ' sia-home__subnav--padEnd' : ''}`}
-              aria-label="Site sections"
+              aria-label={t('nav.siteSectionsAria')}
             >
-              {mainNavLinks.map(({ label, to, icon }) => (
+              {mainNavLinkDefs.map(({ labelKey, to, icon }) => (
                 <NavLink
                   key={to}
                   to={to}
@@ -140,7 +142,7 @@ function MainSiteLayout() {
                   <span className="sia-home__subnavIcon" aria-hidden="true">
                     <i className={`bi ${icon}`} />
                   </span>
-                  <span className="sia-home__subnavLabel">{label}</span>
+                  <span className="sia-home__subnavLabel">{t(labelKey)}</span>
                 </NavLink>
               ))}
             </nav>
@@ -148,7 +150,7 @@ function MainSiteLayout() {
               <button
                 type="button"
                 className="sia-home__subnavScrollBtn sia-home__subnavScrollBtn--left"
-                aria-label="Show previous sections"
+                aria-label={t('nav.subnavScrollPrev')}
                 onClick={() => scrollSubnavBy(-1)}
               >
                 <i className="bi bi-chevron-left" aria-hidden="true" />
@@ -158,7 +160,7 @@ function MainSiteLayout() {
               <button
                 type="button"
                 className="sia-home__subnavScrollBtn sia-home__subnavScrollBtn--right"
-                aria-label="Show more sections"
+                aria-label={t('nav.subnavScrollNext')}
                 onClick={() => scrollSubnavBy(1)}
               >
                 <i className="bi bi-chevron-right" aria-hidden="true" />

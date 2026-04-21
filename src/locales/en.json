@@ -1,0 +1,171 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "membership": "Membership (Pricing)",
+    "resources": "Resources / Blog",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "siteSectionsAria": "Site sections",
+    "subnavScrollPrev": "Show previous sections",
+    "subnavScrollNext": "Show more sections"
+  },
+  "paths": {
+    "study": "Study Pathway",
+    "work": "Work Pathway",
+    "skilled": "Skilled Migration",
+    "settlement": "Settlement",
+    "pathwayFallback": "Pathway"
+  },
+  "home": {
+    "title": "Settling in Australia, made clearer",
+    "subtitle": "Clear, step-by-step pathways for study, work, skilled migration, and settlement.",
+    "pathwaysAria": "Pathways",
+    "carouselLabel": "Study pathway pictures",
+    "carouselStatus": "Showing pictures {{first}}–{{last}} of {{count}}"
+  },
+  "navbar": {
+    "brand": "Settling In Australia",
+    "brandAria": "Settling In Australia",
+    "searchPlaceholder": "Search…",
+    "searchAria": "Search",
+    "signIn": "Sign in",
+    "profile": "Profile",
+    "openNav": "Open navigation menu",
+    "openAppNav": "Open app navigation",
+    "openSiteMenu": "Open site menu",
+    "closeSiteMenu": "Close site menu",
+    "siteMenuTitle": "Site menu",
+    "siteMenuDialogAria": "Search and account",
+    "mobileSearchAccountAria": "Search and account"
+  },
+  "settings": {
+    "title": "Settings",
+    "lead": "Account preferences and site options will live here. Language is under the profile menu.",
+    "language": "Language",
+    "languageHelp": "Choose the interface language. It is saved on this device."
+  },
+  "pages": {
+    "aboutTitle": "About",
+    "aboutLead": "Learn more about Settling In Australia and how we help newcomers.",
+    "membershipTitle": "Membership (Pricing)",
+    "membershipLead": "Compare plans and choose the membership that fits your journey.",
+    "resourcesTitle": "Resources / Blog",
+    "resourcesLead": "Guides, articles, and updates to support settling in Australia.",
+    "faqTitle": "FAQ",
+    "faqLead": "Answers to common questions about the platform and membership.",
+    "contactTitle": "Contact",
+    "contactLead": "Get in touch with questions, feedback, or partnership ideas.",
+    "communityTitle": "Community",
+    "communityLead": "Connect with others settling in Australia. More content coming soon."
+  },
+  "signIn": {
+    "title": "Sign in",
+    "lead": "Demo sign-in for now (we’ll connect real auth later).",
+    "formAria": "Sign in form",
+    "name": "Name",
+    "email": "Email",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@example.com",
+    "planLegend": "Plan",
+    "planFree": "Free",
+    "planPremium": "Premium",
+    "submit": "Continue"
+  },
+  "tutorials": {
+    "title": "Tutorials",
+    "lockTitle": "Premium tutorial",
+    "lockBody": "This tutorial category is for Premium members. Upgrade to unlock it.",
+    "viewPricing": "View Membership pricing",
+    "browseAria": "Browse tutorial categories",
+    "browseTitle": "Browse",
+    "groupFree": "Free tutorials",
+    "groupPremium": "Premium tutorials",
+    "sidebarTierFree": "Free",
+    "sidebarTierPremium": "Premium",
+    "views": {
+      "overview": "Overview",
+      "guides": "Guides",
+      "videos": "Videos",
+      "deepDives": "Deep dives",
+      "expert": "Expert sessions",
+      "library": "Full library",
+      "course": "Course"
+    }
+  },
+  "downloads": {
+    "title": "Downloads",
+    "listAria": "Downloads list",
+    "cardBody": "This page is connected to the sidebar. Next we can load real downloads data here.",
+    "views": {
+      "all": "All files",
+      "recent": "Recent",
+      "starred": "Starred"
+    }
+  },
+  "profile": {
+    "userGroupAria": "Signed-in user",
+    "planBilling": "Plan & billing",
+    "status": "Status",
+    "tierPremium": "Premium",
+    "tierFree": "Free",
+    "managePlan": "Manage plan & billing",
+    "upgradePremium": "Upgrade to Premium",
+    "menuAria": "Account actions",
+    "community": "Community",
+    "notifications": "Notifications",
+    "settings": "Settings",
+    "help": "Help",
+    "logout": "Logout"
+  },
+  "notifications": {
+    "aria": "Notifications",
+    "title": "Notifications",
+    "collapseWide": "Collapse notifications panel",
+    "collapseNarrow": "Expand notifications panel",
+    "close": "Close notifications",
+    "tablistAria": "Notifications views",
+    "tabWhatsNew": "What's new",
+    "tabInbox": "Inbox",
+    "emptyInboxTitle": "Inbox is empty",
+    "emptyInboxBody": "Messages and direct notifications will appear here.",
+    "emptyGeneralTitle": "No notifications to show yet",
+    "emptyGeneralBody": "You'll see helpful info here soon. Stay tuned!"
+  },
+  "sidebar": {
+    "toggleCloseMobile": "Close menu",
+    "toggleCollapse": "Collapse sidebar",
+    "toggleExpand": "Expand sidebar",
+    "mainNavAria": "Main",
+    "home": "Home",
+    "views": "Views",
+    "tutorials": "Tutorials",
+    "downloads": "Downloads",
+    "startHereGateTitle": "View Membership pricing to unlock Start Here pathways",
+    "startHere": "Start Here",
+    "startHereHint": "View Membership pricing to unlock path selection and guided pathways.",
+    "footerAria": "Sidebar tools",
+    "settingsAria": "Settings",
+    "settingsTitle": "Settings",
+    "helpAria": "Help",
+    "helpTitle": "Help",
+    "themeAria": "Theme: choose light, dark, or system",
+    "themeTitle": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System",
+    "notificationsAria": "Notifications",
+    "notificationsTitle": "Notifications"
+  },
+  "startHere": {
+    "trigger": "Start Here",
+    "pathSelection": "Path Selection"
+  },
+  "meta": {
+    "languageName_en": "English",
+    "languageName_es": "Español",
+    "languageName_fr": "Français",
+    "languageName_de": "Deutsch",
+    "languageName_zh": "中文（简体）"
+  }
+}
