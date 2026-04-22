@@ -22,7 +22,9 @@
     "subtitle": "Clear, step-by-step pathways for study, work, skilled migration, and settlement.",
     "pathwaysAria": "Pathways",
     "carouselLabel": "Study pathway pictures",
-    "carouselStatus": "Showing pictures {{first}}–{{last}} of {{count}}"
+    "carouselStatus": "Showing pictures {{first}}–{{last}} of {{count}}",
+    "carouselNavPrev": "Show previous pictures",
+    "carouselNavNext": "Show more pictures"
   },
   "navbar": {
     "brand": "Settling In Australia",

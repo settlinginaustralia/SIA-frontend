@@ -22,7 +22,9 @@
     "subtitle": "Klare Schritt-für-Schritt-Pfade für Studium, Arbeit, qualifizierte Migration und Ansiedlung.",
     "pathwaysAria": "Pfade",
     "carouselLabel": "Bilder zum Studienpfad",
-    "carouselStatus": "Bilder {{first}}–{{last}} von {{count}}"
+    "carouselStatus": "Bilder {{first}}–{{last}} von {{count}}",
+    "carouselNavPrev": "Vorherige Bilder anzeigen",
+    "carouselNavNext": "Weitere Bilder anzeigen"
   },
   "navbar": {
     "brand": "In Australien ankommen",

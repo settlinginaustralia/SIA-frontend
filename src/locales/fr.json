@@ -22,7 +22,9 @@
     "subtitle": "Des parcours clairs, étape par étape, pour étudier, travailler, la migration qualifiée et l’installation.",
     "pathwaysAria": "Parcours",
     "carouselLabel": "Images du parcours études",
-    "carouselStatus": "Images {{first}}–{{last}} sur {{count}}"
+    "carouselStatus": "Images {{first}}–{{last}} sur {{count}}",
+    "carouselNavPrev": "Afficher les images précédentes",
+    "carouselNavNext": "Afficher plus d’images"
   },
   "navbar": {
     "brand": "S’installer en Australie",

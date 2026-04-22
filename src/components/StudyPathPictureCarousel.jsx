@@ -18,6 +18,38 @@ function clamp(n, min, max) {
   return Math.max(min, Math.min(max, n))
 }
 
+/** Extra slides at the end so we can scroll forward forever, then jump back with no reverse animation. */
+function buildTrackLayout(safeSlides, isWide) {
+  const logicalCount = safeSlides.length
+  if (!logicalCount) {
+    return { trackSlides: [], logicalCount: 0, perView: 1, trackCount: 0, hasLoop: false }
+  }
+  const perView = isWide ? Math.min(3, logicalCount) : 1
+
+  let trackSlides = safeSlides
+  let hasLoop = false
+
+  if (perView === 1) {
+    if (logicalCount > 1) {
+      trackSlides = [
+        ...safeSlides,
+        { ...safeSlides[0], id: `${safeSlides[0].id}--loop` },
+      ]
+      hasLoop = true
+    }
+  } else if (logicalCount > perView) {
+    const clones = safeSlides.slice(0, perView).map((s, i) => ({
+      ...s,
+      id: `${s.id}--loop-${i}`,
+    }))
+    trackSlides = [...safeSlides, ...clones]
+    hasLoop = true
+  }
+
+  const trackCount = trackSlides.length
+  return { trackSlides, logicalCount, perView, trackCount, hasLoop }
+}
+
 function StudyPathPictureCarousel({ slides, label }) {
   const { t } = useLanguage()
   const resolvedLabel = label ?? t('home.carouselLabel')
@@ -26,7 +58,23 @@ function StudyPathPictureCarousel({ slides, label }) {
     () => (Array.isArray(slides) ? slides.filter((s) => s && s.imageSrc) : []),
     [slides]
   )
-  const count = safeSlides.length
+
+  const [isWide, setIsWide] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(min-width: 900px)').matches
+  )
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 900px)')
+    const apply = () => setIsWide(mq.matches)
+    apply()
+    mq.addEventListener('change', apply)
+    return () => mq.removeEventListener('change', apply)
+  }, [])
+
+  const { trackSlides, logicalCount, perView: layoutPerView, trackCount, hasLoop } = useMemo(
+    () => buildTrackLayout(safeSlides, isWide),
+    [safeSlides, isWide]
+  )
 
   const viewportRef = useRef(null)
   const reduceMotionRef = useRef(prefersReducedMotion())
@@ -50,30 +98,35 @@ function StudyPathPictureCarousel({ slides, label }) {
 
   const updateMetrics = useCallback(() => {
     const viewport = viewportRef.current
-    if (!viewport || !count) {
+    if (!viewport || !trackCount) {
       setMetrics({ perView: 1, slideWidth: 0, gap: 0, step: 0, maxStart: 0 })
       return
     }
 
-    const isDesktop = window.matchMedia('(min-width: 900px)').matches
-    const perView = isDesktop ? Math.min(3, count) : 1
-    const gap = isDesktop ? 36 : 18
+    const perView = layoutPerView
+    const gap = isWide ? 36 : 18
 
     const viewportWidth = viewport.clientWidth
     const slideWidth =
       perView > 0 ? (viewportWidth - gap * (perView - 1)) / perView : viewportWidth
     const step = slideWidth + gap
-    const maxStart = Math.max(0, count - perView)
+    const maxStart = Math.max(0, trackCount - perView)
 
-    setMetrics({ perView, slideWidth: Math.max(0, slideWidth), gap, step: Math.max(0, step), maxStart })
-  }, [count])
+    setMetrics({
+      perView,
+      slideWidth: Math.max(0, slideWidth),
+      gap,
+      step: Math.max(0, step),
+      maxStart,
+    })
+  }, [trackCount, layoutPerView, isWide])
 
   const updateScrollHint = useCallback(() => {
     const viewport = viewportRef.current
     if (!viewport) return
 
     const maxScroll = viewport.scrollWidth - viewport.clientWidth
-    if (maxScroll <= 2) {
+    if (maxScroll <= 0) {
       setScrollHint({ overflow: false, left: false, right: false })
       return
     }
@@ -85,6 +138,23 @@ function StudyPathPictureCarousel({ slides, label }) {
       right: sl < maxScroll - 6,
     })
   }, [])
+
+  /** When scrolled into the clone strip, snap back to the equivalent real position (no visible jump). */
+  const normalizeLoopScroll = useCallback(
+    (viewport, step, logicalLen, trackLen) => {
+      if (!hasLoop || step <= 0 || trackLen <= logicalLen) return null
+      const raw = viewport.scrollLeft / step
+      const idx = Math.round(raw)
+      if (idx < logicalLen) return idx
+      const offset = idx - logicalLen
+      const nextLeft = offset * step
+      if (Math.abs(viewport.scrollLeft - nextLeft) > 2) {
+        viewport.scrollTo({ left: nextLeft, behavior: 'auto' })
+      }
+      return offset
+    },
+    [hasLoop]
+  )
 
   const scrollToStartIndex = useCallback(
     (nextStart, behavior) => {
@@ -105,14 +175,24 @@ function StudyPathPictureCarousel({ slides, label }) {
 
   const stepBy = useCallback(
     (direction) => {
+      const { step, maxStart } = metrics
+      const viewport = viewportRef.current
+      if (!viewport || !step) return
+
+      if (direction > 0 && hasLoop && startIndex === maxStart) {
+        viewport.scrollTo({ left: 0, behavior: 'auto' })
+        setStartIndex(0)
+        return
+      }
+
       scrollToStartIndex(startIndex + direction, 'smooth')
     },
-    [scrollToStartIndex, startIndex]
+    [hasLoop, metrics, scrollToStartIndex, startIndex]
   )
 
   const handleViewportKeyDown = useCallback(
     (event) => {
-      if (!count) return
+      if (!logicalCount) return
       if (event.key === 'ArrowRight') {
         event.preventDefault()
         stepBy(1)
@@ -124,10 +204,17 @@ function StudyPathPictureCarousel({ slides, label }) {
         scrollToStartIndex(0, reduceMotionRef.current ? 'auto' : 'smooth')
       } else if (event.key === 'End') {
         event.preventDefault()
-        scrollToStartIndex(metrics.maxStart, reduceMotionRef.current ? 'auto' : 'smooth')
+        const { maxStart, perView } = metrics
+        const endIdx =
+          hasLoop && perView > 1
+            ? Math.max(0, logicalCount - perView)
+            : hasLoop && perView === 1
+              ? logicalCount - 1
+              : maxStart
+        scrollToStartIndex(endIdx, reduceMotionRef.current ? 'auto' : 'smooth')
       }
     },
-    [count, metrics.maxStart, scrollToStartIndex, stepBy]
+    [hasLoop, logicalCount, metrics, scrollToStartIndex, stepBy]
   )
 
   useEffect(() => {
@@ -142,7 +229,7 @@ function StudyPathPictureCarousel({ slides, label }) {
 
   useLayoutEffect(() => {
     updateMetrics()
-  }, [count, updateMetrics])
+  }, [trackCount, updateMetrics])
 
   useEffect(() => {
     const viewport = viewportRef.current
@@ -174,30 +261,44 @@ function StudyPathPictureCarousel({ slides, label }) {
       viewport.scrollTo({ left: start * metrics.step, behavior: 'auto' })
       return start
     })
-  }, [metrics.maxStart, metrics.step, count])
+  }, [metrics.maxStart, metrics.step, trackCount])
 
+  /** Always advance forward; at clone window jump to real start with no reverse scroll. */
   useEffect(() => {
-    if (!count) return
+    if (!trackCount) return
     if (reduceMotionRef.current) return
     if (paused) return
-    if (metrics.perView !== 1) return
+    if (!metrics.step) return
+
+    const { perView, maxStart } = metrics
+    const canPan = perView === 1 || maxStart > 0
+    if (!canPan) return
+
+    const stepPx = metrics.step
 
     const id = window.setInterval(() => {
       setStartIndex((prev) => {
-        const nextStart = (prev + 1) % count
         const viewport = viewportRef.current
-        if (viewport && metrics.step) {
-          viewport.scrollTo({
-            left: nextStart * metrics.step,
-            behavior: 'smooth',
-          })
+        if (!viewport) return prev
+
+        if (hasLoop && prev === maxStart) {
+          viewport.scrollTo({ left: 0, behavior: 'auto' })
+          return 0
         }
+
+        const nextStart = prev + 1
+        if (nextStart > maxStart) return prev
+
+        viewport.scrollTo({
+          left: nextStart * stepPx,
+          behavior: 'smooth',
+        })
         return nextStart
       })
     }, 4200)
 
     return () => window.clearInterval(id)
-  }, [count, metrics.perView, metrics.step, paused])
+  }, [hasLoop, metrics.maxStart, metrics.perView, metrics.step, paused, trackCount])
 
   useEffect(() => {
     const viewport = viewportRef.current
@@ -205,19 +306,39 @@ function StudyPathPictureCarousel({ slides, label }) {
 
     function onScroll() {
       if (!metrics.step) return
-      const nextStart = Math.round(viewport.scrollLeft / metrics.step)
+      const normalized = normalizeLoopScroll(
+        viewport,
+        metrics.step,
+        logicalCount,
+        trackCount
+      )
+      const raw = viewport.scrollLeft / metrics.step
+      const nextStart =
+        normalized != null ? normalized : Math.round(raw)
       setStartIndex(clamp(nextStart, 0, metrics.maxStart))
       updateScrollHint()
     }
 
     viewport.addEventListener('scroll', onScroll, { passive: true })
     return () => viewport.removeEventListener('scroll', onScroll)
-  }, [metrics.maxStart, metrics.step, updateScrollHint])
+  }, [
+    logicalCount,
+    metrics.maxStart,
+    metrics.step,
+    normalizeLoopScroll,
+    trackCount,
+    updateScrollHint,
+  ])
 
-  if (!count) return null
+  if (!logicalCount) return null
 
-  const first = startIndex + 1
-  const last = clamp(startIndex + metrics.perView, 1, count)
+  const logicalVisible = Array.from({ length: metrics.perView }, (_, i) => {
+    const ti = startIndex + i
+    if (ti < logicalCount) return ti + 1
+    return ti - logicalCount + 1
+  })
+  const first = Math.min(...logicalVisible)
+  const last = Math.max(...logicalVisible)
 
   const slideLayoutStyle =
     metrics.slideWidth > 0
@@ -239,7 +360,7 @@ function StudyPathPictureCarousel({ slides, label }) {
       }}
     >
       <p className="sia-studyPix__status" aria-live="polite">
-        {t('home.carouselStatus', { first, last, count })}
+        {t('home.carouselStatus', { first, last, count: logicalCount })}
       </p>
 
       <div className="sia-studyPix__frame">
@@ -258,7 +379,7 @@ function StudyPathPictureCarousel({ slides, label }) {
             tabIndex={0}
             onKeyDown={handleViewportKeyDown}
           >
-            {safeSlides.map((slide) => (
+            {trackSlides.map((slide) => (
               <div key={slide.id} className="sia-studyPix__slide" style={slideLayoutStyle}>
                 <div className="sia-studyPix__tile">
                   <img
@@ -281,7 +402,7 @@ function StudyPathPictureCarousel({ slides, label }) {
             <button
               type="button"
               className="sia-studyPix__navBtn sia-studyPix__navBtn--left"
-              aria-label="Show previous pictures"
+              aria-label={t('home.carouselNavPrev')}
               onClick={() => stepBy(-1)}
             >
               <i className="bi bi-chevron-left" aria-hidden="true" />
@@ -292,7 +413,7 @@ function StudyPathPictureCarousel({ slides, label }) {
             <button
               type="button"
               className="sia-studyPix__navBtn sia-studyPix__navBtn--right"
-              aria-label="Show more pictures"
+              aria-label={t('home.carouselNavNext')}
               onClick={() => stepBy(1)}
             >
               <i className="bi bi-chevron-right" aria-hidden="true" />
@@ -300,7 +421,6 @@ function StudyPathPictureCarousel({ slides, label }) {
           ) : null}
         </div>
       </div>
-
     </section>
   )
 }

@@ -22,7 +22,9 @@
     "subtitle": "Vías claras, paso a paso, para estudiar, trabajar, migración calificada y establecimiento.",
     "pathwaysAria": "Vías",
     "carouselLabel": "Imágenes de la vía de estudio",
-    "carouselStatus": "Mostrando imágenes {{first}}–{{last}} de {{count}}"
+    "carouselStatus": "Mostrando imágenes {{first}}–{{last}} de {{count}}",
+    "carouselNavPrev": "Ver imágenes anteriores",
+    "carouselNavNext": "Ver más imágenes"
   },
   "navbar": {
     "brand": "Establecerse en Australia",

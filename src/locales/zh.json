@@ -22,7 +22,9 @@
     "subtitle": "清晰分步路径，涵盖留学、工作、技术移民与定居。",
     "pathwaysAria": "路径",
     "carouselLabel": "留学路径图片",
-    "carouselStatus": "正在显示第 {{first}}–{{last}} 张，共 {{count}} 张"
+    "carouselStatus": "正在显示第 {{first}}–{{last}} 张，共 {{count}} 张",
+    "carouselNavPrev": "显示上一张图片",
+    "carouselNavNext": "显示更多图片"
   },
   "navbar": {
     "brand": "在澳大利亚安家",
