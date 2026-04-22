@@ -26,6 +26,18 @@
     "carouselNavPrev": "Vorherige Bilder anzeigen",
     "carouselNavNext": "Weitere Bilder anzeigen"
   },
+  "footer": {
+    "navAria": "Fußzeile",
+    "tagline": "Klare Wege für Studium, Arbeit und Ansiedlung—keine Rechtsberatung.",
+    "colSite": "Website",
+    "colProduct": "Angebot",
+    "colSupport": "Hilfe",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "copyright": "© {{year}} In Australien ankommen. Alle Rechte vorbehalten.",
+    "privacyHrefTitle": "Datenschutzerklärung (demnächst)",
+    "termsHrefTitle": "Nutzungsbedingungen (demnächst)"
+  },
   "navbar": {
     "brand": "In Australien ankommen",
     "brandAria": "In Australien ankommen",

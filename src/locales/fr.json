@@ -26,6 +26,18 @@
     "carouselNavPrev": "Afficher les images précédentes",
     "carouselNavNext": "Afficher plus d’images"
   },
+  "footer": {
+    "navAria": "Pied de page",
+    "tagline": "Parcours clairs pour étudier, travailler et s’installer—pas un conseil juridique.",
+    "colSite": "Site",
+    "colProduct": "Produit",
+    "colSupport": "Aide",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "copyright": "© {{year}} S’installer en Australie. Tous droits réservés.",
+    "privacyHrefTitle": "Politique de confidentialité (bientôt)",
+    "termsHrefTitle": "Conditions d’utilisation (bientôt)"
+  },
   "navbar": {
     "brand": "S’installer en Australie",
     "brandAria": "S’installer en Australie",

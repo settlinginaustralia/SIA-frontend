@@ -26,6 +26,18 @@
     "carouselNavPrev": "显示上一张图片",
     "carouselNavNext": "显示更多图片"
   },
+  "footer": {
+    "navAria": "页脚",
+    "tagline": "留学、工作与定居的清晰路径—非法律意见。",
+    "colSite": "网站",
+    "colProduct": "产品",
+    "colSupport": "支持",
+    "privacy": "隐私",
+    "terms": "条款",
+    "copyright": "© {{year}} 在澳大利亚安家。保留所有权利。",
+    "privacyHrefTitle": "隐私政策（即将推出）",
+    "termsHrefTitle": "使用条款（即将推出）"
+  },
   "navbar": {
     "brand": "在澳大利亚安家",
     "brandAria": "在澳大利亚安家",

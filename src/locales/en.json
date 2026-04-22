@@ -26,6 +26,18 @@
     "carouselNavPrev": "Show previous pictures",
     "carouselNavNext": "Show more pictures"
   },
+  "footer": {
+    "navAria": "Site footer",
+    "tagline": "Clear pathways for study, work, and settlement—not legal advice.",
+    "colSite": "Site",
+    "colProduct": "Product",
+    "colSupport": "Support",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "copyright": "© {{year}} Settling In Australia. All rights reserved.",
+    "privacyHrefTitle": "Privacy policy (coming soon)",
+    "termsHrefTitle": "Terms of use (coming soon)"
+  },
   "navbar": {
     "brand": "Settling In Australia",
     "brandAria": "Settling In Australia",

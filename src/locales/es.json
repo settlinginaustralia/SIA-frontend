@@ -26,6 +26,18 @@
     "carouselNavPrev": "Ver imágenes anteriores",
     "carouselNavNext": "Ver más imágenes"
   },
+  "footer": {
+    "navAria": "Pie de página",
+    "tagline": "Vías claras para estudiar, trabajar y establecerse—no es asesoramiento legal.",
+    "colSite": "Sitio",
+    "colProduct": "Producto",
+    "colSupport": "Soporte",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "copyright": "© {{year}} Establecerse en Australia. Todos los derechos reservados.",
+    "privacyHrefTitle": "Política de privacidad (próximamente)",
+    "termsHrefTitle": "Términos de uso (próximamente)"
+  },
   "navbar": {
     "brand": "Establecerse en Australia",
     "brandAria": "Establecerse en Australia",

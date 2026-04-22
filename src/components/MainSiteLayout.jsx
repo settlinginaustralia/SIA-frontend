@@ -11,6 +11,7 @@ import { NavLink, Outlet, useOutletContext } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import NavBar from './NavBar'
 import ProfilePanel from './ProfilePanel'
+import SiteFooter from './SiteFooter'
 
 const mainNavLinkDefs = [
   { labelKey: 'nav.home', to: '/', icon: 'bi-house' },
@@ -173,6 +174,7 @@ function MainSiteLayout() {
       <main className="sia-home__main">
         <Outlet />
       </main>
+      <SiteFooter />
     </div>
   )
 }
