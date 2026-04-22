@@ -10,6 +10,7 @@ function SiteFooter() {
   const siteLinks = [
     { to: '/', labelKey: 'nav.home', end: true },
     { to: '/about', labelKey: 'nav.about' },
+    { to: '/signin', labelKey: 'footer.signUp' },
     { to: '/community', labelKey: 'pages.communityTitle' },
   ]
 
@@ -90,24 +91,34 @@ function SiteFooter() {
           <p className="sia-footer__copyright">
             {t('footer.copyright', { year })}
           </p>
-          <div className="sia-footer__legal">
-            <a
-              className="sia-footer__legalLink"
-              href="#privacy"
-              title={t('footer.privacyHrefTitle')}
+          <div className="sia-footer__bottomActions">
+            <NavLink
+              className={({ isActive }) =>
+                `sia-footer__signup${isActive ? ' sia-footer__signup--active' : ''}`
+              }
+              to="/signin"
             >
-              {t('footer.privacy')}
-            </a>
-            <span className="sia-footer__legalSep" aria-hidden="true">
-              ·
-            </span>
-            <a
-              className="sia-footer__legalLink"
-              href="#terms"
-              title={t('footer.termsHrefTitle')}
-            >
-              {t('footer.terms')}
-            </a>
+              {t('footer.signUp')}
+            </NavLink>
+            <div className="sia-footer__legal">
+              <a
+                className="sia-footer__legalLink"
+                href="#privacy"
+                title={t('footer.privacyHrefTitle')}
+              >
+                {t('footer.privacy')}
+              </a>
+              <span className="sia-footer__legalSep" aria-hidden="true">
+                ·
+              </span>
+              <a
+                className="sia-footer__legalLink"
+                href="#terms"
+                title={t('footer.termsHrefTitle')}
+              >
+                {t('footer.terms')}
+              </a>
+            </div>
           </div>
         </div>
       </div>
